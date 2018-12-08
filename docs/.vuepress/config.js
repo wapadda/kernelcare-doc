@@ -7,7 +7,7 @@ module.exports = {
       lang: "en-US", // this will be set as the lang attribute on <html>
       title: "Documentation",
       description: "Kernelcare documentation"
-    },
+    }
     // TODO: temporary!
     // "/ru/": {
     //   lang: "ru",
@@ -64,7 +64,26 @@ module.exports = {
             title: "Content",
             collapsable: false,
             children: [
-
+              "/installation/",
+              "/settings/",
+              "/command_line/",
+              "/config_options/",
+              "/disabling_some_patches/",
+              "/delayed_feed/",
+              "/extra_patchset/",
+              "/sticky_patches/",
+              "/nagios_plugin/",
+              "/zabbix_template/",
+              "/upgrade/",
+              "/uninstall/",
+              "/technology/",
+              "/reseller_partner_ui/",
+              "/kernelcare_enterprise/",
+              "/kcare-nexpose/",
+              "/kernelcare_whmcs_plugin/",
+              "/proxy_settings/",
+              "/eol_ubuntu_lts_kernels_support/",
+              "/downloading_documentation/"
             ]
           }
         ]
@@ -85,7 +104,26 @@ module.exports = {
             title: "Содержание",
             collapsable: false,
             children: [
-
+              "/ru/installation/",
+              "/ru/settings/",
+              "/ru/command_line/",
+              "/ru/config_options/",
+              "/ru/disabling_some_patches/",
+              "/ru/delayed_feed/",
+              "/ru/extra_patchset/",
+              "/ru/sticky_patches/",
+              "/ru/nagios_plugin/",
+              "/ru/zabbix_template/",
+              "/ru/upgrade/",
+              "/ru/uninstall/",
+              "/ru/technology/",
+              "/ru/reseller_partner_ui/",
+              "/ru/kernelcare_enterprise/",
+              "/ru/kcare-nexpose/",
+              "/ru/kernelcare_whmcs_plugin/",
+              "/ru/proxy_settings/",
+              "/ru/eol_ubuntu_lts_kernels_support/",
+              "/ru/downloading_documentation/"
             ]
           }
         ]
