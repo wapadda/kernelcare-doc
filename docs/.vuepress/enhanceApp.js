@@ -9,11 +9,9 @@ export default ({
 
   router.beforeEach((to, from, next) => {
     if (/.htm[l]*$/.test(to.fullPath)) {
-      // debugger
       const newUrl = URLS[to.fullPath];
       if (newUrl) {
-        // debugger
-        router.push(newUrl);
+        next(newUrl)
       } else {
         next();
       }
