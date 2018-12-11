@@ -10,7 +10,7 @@ export default ({
     router.addRoutes([{ path: "/", redirect: "/installation/" }]);
 
     router.beforeEach((to, from, next) => {
-      if (/.htm[l]*$/.test(to.path)) {
+      if (/.htm[l]*$/.test(to.fullPath)) {
         const newUrl = URLS[location.pathname + location.search];
         if (newUrl) {
           router.push(newUrl);
