@@ -1,4 +1,4 @@
-module.exports = URLS = {
+URLS = {
   "/installation.htm": "/installation/",
   "/index.html?installation.htm": "/installation/",
   "/switching_from_ksplice.htm": "/installation/#switching-from-ksplice",
