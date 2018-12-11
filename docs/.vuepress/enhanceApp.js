@@ -7,6 +7,8 @@ export default ({
 }) => {
   const isClient = typeof window !== "undefined";
   if (isClient) {
+    router.addRoutes([{ path: "/", redirect: "/installation/" }]);
+
     router.beforeEach((to, from, next) => {
       if (/.htm[l]*$/.test(to.path)) {
         const newUrl = URLS[location.pathname + location.search];

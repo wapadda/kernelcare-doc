@@ -19,7 +19,7 @@ module.exports = {
   // theme: "/Users/prefer/src/cloudlinux-doc-theme", // local path
 
   themeConfig: {
-    defaultURL: "/installation/",
+    // defaultURL: "/installation/",
     sidebarDepth: 2,
     logo: "/logo.svg",
     try_free: "https://cloudlinux.com/kernelcare-free-trial5",
