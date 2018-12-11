@@ -15,8 +15,8 @@ module.exports = {
     //   description: "Документация Kernelcare"
     // }
   },
-  theme: "cloudlinux",
-  // theme: '/Users/prefer/src/cloudlinux-doc-theme', # local path
+  // theme: "cloudlinux",
+  theme: "/Users/prefer/src/cloudlinux-doc-theme", // local path
 
   themeConfig: {
     sidebarDepth: 2,
