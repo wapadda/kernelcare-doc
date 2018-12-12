@@ -1,7 +1,7 @@
 # Config Options
 
 
-kcarectl behavior can be configured using _/etc/sysconfig/kcare/kcare.conf_
+kcarectl behavior can be configured using /etc/sysconfig/kcare/kcare.conf
 
 | | |
 |-|-|
