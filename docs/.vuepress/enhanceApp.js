@@ -5,11 +5,12 @@ export default ({
   siteData // site metadata
 }) => {
   // router.addRoutes([{ path: "/", redirect: siteData.themeConfig.defaultURL }]);
+
   router.beforeEach((to, from, next) => {
-    if ((to.path === "/")) {
+    if (to.path === "/") {
       next(siteData.themeConfig.defaultURL);
     } else {
-      next()
+      next();
     }
   });
 };
