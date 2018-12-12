@@ -147,7 +147,7 @@ To access KernelCare.eportal management console, connect to:
 And enter your login & password
 
 ![](/images/access_eportal.png)
-You can manage your login information using [kc.eportal tool](/managing_users/) .
+You can manage your login information using [kc.eportal tool](/kernelcare_enterprise/#managing-users) .
 
 ## PatchSet Deployment
 
@@ -178,13 +178,13 @@ Click _Add_ button, so a new registration key will be automatically generated an
 The key itself will be used as part of the registration command on individual server. You can provide a description for the key, as well as max servers that can be registered under that key.
 Removing the key would remove all servers under the key.
 
-Clicking on the key would let you see the information about [servers registered](/managing_servers/) under that key, as well as remove servers.
+Clicking on the key would let you see the information about [servers registered](/kernelcare_enterprise/#managing-servers) under that key, as well as remove servers.
 
 
 ## Managing Servers
 
 
-You can see servers belonging to the key by clicking on the key itself in [Managing Keys](/managing_keys/) interface.
+You can see servers belonging to the key by clicking on the key itself in [Managing Keys](/kernelcare_enterprise/#managing-keys) interface.
 
 ![](/images/server_list.png)
 The screen shows servers registered under the key, their IP, hostname, effective kernel as well as the time of registration and last check in.

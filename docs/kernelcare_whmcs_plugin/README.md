@@ -1,23 +1,23 @@
 # KernelCare WHMCS Plugin
 
 
-[Overview](/overview/)
-[Installation & Configuration](/installation_configuration/)
-`o` [Installation and Update](/installation_and_update/)
-`o` [Configuration of Product](/configuration_of_product/)
-`o` [Configuration of Add-on](/configuration_of_addon/)
-[Management](/management/)
-`o` [Link Via Add-on. Optional License](/link_via_addon_optional_lice/)
-`o` [Link Products Directly](/link_products_directly/)
-`o` [Link Via Configurable Options](/link_via_configurable_options/)
-`o` [Link Add-ons Directly](/link_addons_directly/) (for WHMCS 7.2.x and later)
-`o` [KernelCare Key Licenses](/kernelcare_key_licenses/)
-`o` [Order](/order/)
-`o` [Admin Area](/admin_area/)
-`o` [Client Area](/client_area/)
-`o` [Licenses List](/licenses_list/)
-`o` [Add-on Licenses List](/add-on_licenses_list/) (for WHMCS 7.2.x and later)
-[Common Problems](/common_problems/)
+[Overview](/kernelcare_whmcs_plugin/#overview)
+[Installation & Configuration](/kernelcare_whmcs_plugin/#installation-configuration)
+`o` [Installation and Update](/kernelcare_whmcs_plugin/#installation-and-update)
+`o` [Configuration of Product](/kernelcare_whmcs_plugin/#configuration-of-product)
+`o` [Configuration of Add-on](/kernelcare_whmcs_plugin/#configuration-of-add-on)
+[Management](/kernelcare_whmcs_plugin/#management)
+`o` [Link Via Add-on. Optional License](/kernelcare_whmcs_plugin/#link-via-add-on-optional-license)
+`o` [Link Products Directly](/kernelcare_whmcs_plugin/#link-products-directly)
+`o` [Link Via Configurable Options](/kernelcare_whmcs_plugin/#link-via-configurable-options)
+`o` [Link Add-ons Directly](/kernelcare_whmcs_plugin/#link-add-ons-directly) (for WHMCS 7.2.x and later)
+`o` [KernelCare Key Licenses](/kernelcare_whmcs_plugin/#kernelcare-key-licenses)
+`o` [Order](/kernelcare_whmcs_plugin/#order)
+`o` [Admin Area](/kernelcare_whmcs_plugin/#admin-area)
+`o` [Client Area](/kernelcare_whmcs_plugin/#client-area)
+`o` [Licenses List](/kernelcare_whmcs_plugin/#licenses-list)
+`o` [Add-on Licenses List](/kernelcare_whmcs_plugin/#add-on-licenses-list) (for WHMCS 7.2.x and later)
+[Common Problems](/kernelcare_whmcs_plugin/#common-problems)
 
 ## Overview
 
@@ -54,9 +54,9 @@ Supports WHMCS V6 and Later
 
 In this section we will show you how to set up our products.
 
-[Installation and Update](/installation_and_update/)
-[Configuration of Product](/configuration_of_product/)
-[Configuration of Add-on](/configuration_of_addon/)
+[Installation and Update](/kernelcare_whmcs_plugin/#installation-and-update)
+[Configuration of Product](/kernelcare_whmcs_plugin/#configuration-of-product)
+[Configuration of Add-on](/kernelcare_whmcs_plugin/#configuration-of-add-on)
 
 ### Installation and Update
 
@@ -102,16 +102,16 @@ _Fig 2: KernelCare License For WHMCS add-on module main page._
 
 In this section you can find two ways of linking license product with your server product as well as other possibilities of the module.
 
-[Link Via Add-on. Optional License](/link_via_addon_optional_lice/)
-[Link Products Directly](/link_products_directly/)
-[Link Via Configurable Options](/link_via_configurable_options/)
-[Link Add-ons Directly](/link_addons_directly/) (for WHMCS 7.2.x and later)
-[KernelCare Key Licenses](/kernelcare_key_licenses/)
-[Order](/order/)
-[Admin Area](/admin_area/)
-[Client Area](/client_area/)
-[Licenses List](/licenses_list/)
-[Add-on Licenses List](/add-on_licenses_list/) (for WHMCS 7.2.x and later)
+[Link Via Add-on. Optional License](/kernelcare_whmcs_plugin/#link-via-add-on-optional-license)
+[Link Products Directly](/kernelcare_whmcs_plugin/#link-products-directly)
+[Link Via Configurable Options](/kernelcare_whmcs_plugin/#link-via-configurable-options)
+[Link Add-ons Directly](/kernelcare_whmcs_plugin/#link-add-ons-directly) (for WHMCS 7.2.x and later)
+[KernelCare Key Licenses](/kernelcare_whmcs_plugin/#kernelcare-key-licenses)
+[Order](/kernelcare_whmcs_plugin/#order)
+[Admin Area](/kernelcare_whmcs_plugin/#admin-area)
+[Client Area](/kernelcare_whmcs_plugin/#client-area)
+[Licenses List](/kernelcare_whmcs_plugin/#licenses-list)
+[Add-on Licenses List](/kernelcare_whmcs_plugin/#add-on-licenses-list) (for WHMCS 7.2.x and later)
 
 ### Link Via Add-on. Optional License
 
@@ -144,7 +144,7 @@ If you want to offer server along with the license, perform the following steps.
 
 **_Note. _** _Please do_ _ not set up pricing for license provisioning product. In exchange, you can increase a price for server provisioning product._
 
-Prepare license provisioning product as described in the [Configuration of Product](/configuration_of_product/) section of this documentation.
+Prepare license provisioning product as described in the [Configuration of Product](/kernelcare_whmcs_plugin/#configuration-of-product) section of this documentation.
 Go to _Add-ons → CloudLinux Licenses Add-on → Products Relations_ and click _Add Relation_ .
 Select server provisioning product from the Main _ product_ drop-down list and license provisioning product from _Linked Product With License_ and click _Add Relation_ .
 
@@ -157,7 +157,7 @@ _Fig 5: Creating relations directly between server and license provisioning modu
 In order to allow your client  to decide whether he wants to order server with or without license we can use Configurable Options ( [https://docs.whmcs.com/Addons_and_Configurable_Options](https://docs.whmcs.com/Addons_and_Configurable_Options) ).
 
 Below we will show you what steps to proceed to prepare such connection:
-Configure CloudLinuxLicenses product as described [here](/configuration_of_product/) .
+Configure CloudLinuxLicenses product as described [here](/kernelcare_whmcs_plugin/#configuration-of-product) .
 Go to _Setup → Products/Services → Configurable Options_ and click _Create a New Group_ .
 Fill group name and add _New Configurable Option_ , set up billing cycle, price and option type. Then save changes.
 Go to _Add-ons → CloudLinux Licenses Add-on → Configurable Options Relations_ and click _Add Relation_ .
