@@ -14,7 +14,7 @@ jobs:
             - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Install dependencies
-          command: npm install yarn && yarn
+          command: npm install yarn && yarn install --frozen-lockfile
       - run:
           name: Publish update to GitHub
           command: bash ./deploy.sh
