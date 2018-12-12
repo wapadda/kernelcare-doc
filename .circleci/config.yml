@@ -15,9 +15,9 @@ jobs:
       - run:
           name: Install yarn
           command: sudo npm install -g yarn
-      -run:
+      - run:
           name: Install dependencies
-          command: && sudo yarn install --frozen-lockfile
+          command: sudo yarn install --frozen-lockfile
       - run:
           name: Publish update to GitHub
           command: sudo bash ./deploy.sh
