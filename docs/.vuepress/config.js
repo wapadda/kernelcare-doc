@@ -20,7 +20,7 @@ module.exports = {
   theme: "cloudlinux",
   // theme: "/Users/prefer/src/cloudlinux-doc-theme", // local path
   themeConfig: {
-    defaultURL: "/installation/",
+    // defaultURL: "/installation/", // instead of 404
     redirectionMapping: urls,
     sidebarDepth: 2,
     logo: "/logo.svg",

@@ -4,4 +4,6 @@ export default ({
   options, // the options for the root Vue instance
   router, // the router instance for the app
   siteData // site metadata
-}) => {};
+}) => {
+  router.addRoutes([{ path: "/", redirect: "/installation/" }]);
+};
