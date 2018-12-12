@@ -18,6 +18,7 @@ kcarectl behavior can be configured using _/etc/sysconfig/kcare/kcare.conf_
 |`--set-patch-type free` | To enable free patches.|
 |`STICKY_PATCH=KEY` | Retrieve sticky patch from KEY (see CLN, Key Edit); not supported for IP based servers or ePortal.|
 |`STICKY_PATCH=DDMMYY` | Stick patch to a particular date. More info at [Sticky Patches](/sticky_patches/) .|
+|`REPORT_FQDN=True|False` | Force using Fully Qualified Domain as a hostname. False by default.|
 
 
 
