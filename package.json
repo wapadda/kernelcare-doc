@@ -7,5 +7,10 @@
     "@vuepress/plugin-back-to-top": "^1.0.0-alpha.0",
     "@vuepress/plugin-i18n-ui": "^1.0.0-alpha.0",
     "@vuepress/plugin-medium-zoom": "^1.0.0-alpha.0"
+  },
+  "dependencies": {
+    "@vuepress/core": "1.0.0-alpha.27",
+    "vuepress": "1.0.0-alpha.27",
+    "vuepress-theme-cloudlinux": "https://github.com/cloudlinux/cloudlinux-doc-theme.git"
   }
 }
