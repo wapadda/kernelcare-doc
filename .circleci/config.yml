@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Install dependencies
           # 1.0.0-alpha.27 still is not stable
-          command: npm install vuepress@^1.0.0-alpha.27 yarn && yarn
+          command: npm install vuepress@1.0.0-alpha.27 yarn && yarn
       - run:
           name: Publish update to GitHub
           command: bash ./deploy.sh
