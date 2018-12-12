@@ -4,13 +4,12 @@ export default ({
   router, // the router instance for the app
   siteData // site metadata
 }) => {
-  router.addRoutes([{ path: "/", redirect: siteData.themeConfig.defaultURL }]);
-
-  // router.beforeEach((to, from, next) => {
-  //   if (to.path === "/") {
-  //     next(siteData.themeConfig.defaultURL);
-  //   } else {
-  //     next();
-  //   }
-  // });
+  // router.addRoutes([{ path: "/", redirect: siteData.themeConfig.defaultURL }]);
+  router.beforeEach((to, from, next) => {
+    if ((to.path === "/")) {
+      next(siteData.themeConfig.defaultURL);
+    } else {
+      next()
+    }
+  });
 };
