@@ -16,8 +16,8 @@ jobs:
           name: Install dependencies
           command: yarn
       - run:
-        name: Upgrade cloudlinux theme dependency
-        command: yarn upgrade vuepress-theme-cloudlinux
+          name: Upgrade cloudlinux theme dependency
+          command: yarn upgrade vuepress-theme-cloudlinux
       - run:
           name: Publish update to GitHub
           command: bash ./deploy.sh
