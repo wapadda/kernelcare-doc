@@ -6,10 +6,10 @@ export default ({
 }) => {
   // router.addRoutes([{ path: "/", redirect: siteData.themeConfig.defaultURL }]);
   router.beforeEach((to, from, next) => {
-    if ((to.path === "/")) {
-      next(siteData.themeConfig.defaultURL);
+    if (to.path === "/") {
+      window.location.href = siteData.themeConfig.defaultURL;
     } else {
-      next()
+      next();
     }
   });
 };
