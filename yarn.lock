@@ -721,6 +721,54 @@
     webpack-serve "^1.0.2"
     webpackbar "^2.6.1"
 
+"@vuepress/core@^1.0.0-alpha.27":
+  version "1.0.0-alpha.28"
+  resolved "https://registry.yarnpkg.com/@vuepress/core/-/core-1.0.0-alpha.28.tgz#f29c02e7d2521e0fb37027c6bf1a06d32c38e9aa"
+  dependencies:
+    "@babel/core" "^7.0.0"
+    "@vue/babel-preset-app" "^3.1.1"
+    "@vuepress/markdown" "^1.0.0-alpha.28"
+    "@vuepress/markdown-loader" "^1.0.0-alpha.28"
+    "@vuepress/plugin-last-updated" "^1.0.0-alpha.28"
+    "@vuepress/plugin-register-components" "^1.0.0-alpha.28"
+    "@vuepress/shared-utils" "^1.0.0-alpha.28"
+    autoprefixer "^8.2.0"
+    babel-loader "^8.0.4"
+    cac "^6.3.9"
+    cache-loader "^1.2.2"
+    chokidar "^2.0.3"
+    connect-history-api-fallback "^1.5.0"
+    copy-webpack-plugin "^4.5.1"
+    cross-spawn "^6.0.5"
+    css-loader "^0.28.11"
+    file-loader "^1.1.11"
+    gray-matter "^4.0.1"
+    js-yaml "^3.11.0"
+    koa-connect "^2.0.1"
+    koa-mount "^3.0.0"
+    koa-range "^0.3.0"
+    koa-static "^4.0.2"
+    lru-cache "^4.1.2"
+    mini-css-extract-plugin "0.4.4"
+    optimize-css-assets-webpack-plugin "^4.0.0"
+    portfinder "^1.0.13"
+    postcss-loader "^2.1.5"
+    semver "^5.5.0"
+    toml "^2.3.3"
+    url-loader "^1.0.1"
+    vue "^2.5.16"
+    vue-content-loader "^0.2.1"
+    vue-loader "^15.2.4"
+    vue-router "^3.0.1"
+    vue-server-renderer "^2.5.16"
+    vue-template-compiler "^2.5.16"
+    vuepress-html-webpack-plugin "^3.2.0"
+    webpack "^4.8.1"
+    webpack-chain "^4.6.0"
+    webpack-merge "^4.1.2"
+    webpack-serve "^1.0.2"
+    webpackbar "^2.6.1"
+
 "@vuepress/markdown-loader@^1.0.0-alpha.27", "@vuepress/markdown-loader@^1.0.0-alpha.28":
   version "1.0.0-alpha.28"
   resolved "https://registry.yarnpkg.com/@vuepress/markdown-loader/-/markdown-loader-1.0.0-alpha.28.tgz#1861abbfaa1edcb9632dda3ac7e857ce9a882fef"
@@ -741,7 +789,7 @@
     markdown-it-table-of-contents "^0.4.0"
     prismjs "^1.13.0"
 
-"@vuepress/plugin-active-header-links@^1.0.0-alpha.28":
+"@vuepress/plugin-active-header-links@^1.0.0-alpha.27", "@vuepress/plugin-active-header-links@^1.0.0-alpha.28":
   version "1.0.0-alpha.28"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-active-header-links/-/plugin-active-header-links-1.0.0-alpha.28.tgz#22e155abfa30bb6bd7f353f98585b8436b887837"
   dependencies:
@@ -775,7 +823,7 @@
   dependencies:
     "@vuepress/shared-utils" "^1.0.0-alpha.28"
 
-"@vuepress/plugin-search@^1.0.0-alpha.28":
+"@vuepress/plugin-search@^1.0.0-alpha.27", "@vuepress/plugin-search@^1.0.0-alpha.28":
   version "1.0.0-alpha.28"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-search/-/plugin-search-1.0.0-alpha.28.tgz#35aff29115fba7d28d9483622855727f75b79cbf"
 
@@ -790,6 +838,17 @@
     globby "^8.0.1"
     hash-sum "^1.0.2"
     upath "^1.1.0"
+
+"@vuepress/theme-default@1.0.0-alpha.27":
+  version "1.0.0-alpha.27"
+  resolved "https://registry.yarnpkg.com/@vuepress/theme-default/-/theme-default-1.0.0-alpha.27.tgz#e9236bccebe3aa193d03dd4a28f192ebf7d44657"
+  dependencies:
+    "@vuepress/plugin-active-header-links" "^1.0.0-alpha.27"
+    "@vuepress/plugin-search" "^1.0.0-alpha.27"
+    docsearch.js "^2.5.2"
+    nprogress "^0.2.0"
+    stylus "^0.54.5"
+    stylus-loader "^3.0.2"
 
 "@vuepress/theme-default@^1.0.0-alpha.27":
   version "1.0.0-alpha.28"

@@ -13,14 +13,11 @@ jobs:
           keys:
             - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
-          name: Install yarn
-          command: sudo npm install -g yarn
-      - run:
           name: Install dependencies
-          command: sudo yarn install --frozen-lockfile
+          command: npm install yarn && yarn
       - run:
           name: Publish update to GitHub
-          command: sudo bash ./deploy.sh
+          command: bash ./deploy.sh
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "yarn.lock" }}
