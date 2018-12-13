@@ -3,13 +3,4 @@ export default ({
   options, // the options for the root Vue instance
   router, // the router instance for the app
   siteData // site metadata
-}) => {
-  // router.addRoutes([{ path: "/", redirect: siteData.themeConfig.defaultURL }]);
-  router.beforeEach((to, from, next) => {
-    if (to.path === "/") {
-      window.location.href = siteData.themeConfig.defaultURL;
-    } else {
-      next();
-    }
-  });
-};
+}) => {};
