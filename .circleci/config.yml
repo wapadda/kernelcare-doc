@@ -9,12 +9,15 @@ jobs:
       - add_ssh_keys: # add SSH key with write access
           fingerprints:
             - "fb:1e:06:f0:5c:e9:d4:31:9a:1c:8a:62:03:cd:07:a0"
-      # - restore_cache:
-      #     keys:
-      #       - yarn-packages-{{ checksum "yarn.lock" }}
+      - restore_cache:
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Install dependencies
           command: yarn
+      - run:
+        name: Upgrade cloudlinux theme dependency
+        command: yarn upgrade vuepress-theme-cloudlinux
       - run:
           name: Publish update to GitHub
           command: bash ./deploy.sh
