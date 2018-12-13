@@ -3,8 +3,6 @@
 # abort on errors
 set -e
 
-yarn upgrade vuepress-theme-cloudlinux
-
 # build
 yarn docs:build
 
