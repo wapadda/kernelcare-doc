@@ -6,5 +6,6 @@
   "dependencies": {
     "vuepress": "^0.14.8",
     "vuepress-theme-cloudlinux": "https://github.com/cloudlinux/cloudlinux-doc-theme.git"
-  }
+  },
+  "devDependencies": {}
 }
