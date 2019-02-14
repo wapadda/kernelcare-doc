@@ -3,13 +3,13 @@
 
 The script marks vulnerabilities detected by Nexpose, but patched by KernelCare as exceptions.
 
-[Installation](/kcare-nexpose/#installation)
+[Installation](/installation3/)
 
-[How It Works](/kcare-nexpose/#how-it-works)
+[How It Works](/how_it_works/)
 
-[How To Launch](/kcare-nexpose/#how-to-launch)
+[How To Launch](/how_to_launch/)
 
-[YAML config file description](/kcare-nexpose/#yaml-config-file-description)
+[YAML config file description](/yaml_config_file_description/)
 
 ## Installation
 
@@ -74,7 +74,7 @@ $ pip install -r REQUIREMENTS
 
 The script finds CVEs that are related to patches applied by KernelCare (downloaded either from KernelCare ePortal or the central KernelCare patch server) and excludes them from Nexpose vulnerability scanner reports. The script can approve this exception in Nexpose (if you do not want to approve, set `is_approve` to `false` in the script config). It can also remove the old exceptions left from the previous script runs (set `delete_old` to `true` in the script config).
 
-First, you should generate report in Nexpose (see supported report types below) and specify it in the config file. Also you need to specify some other [parameters](/kcare-nexpose/#yaml-config-file-description) :
+First, you should generate report in Nexpose (see supported report types below) and specify it in the config file. Also you need to specify some other [parameters](/yaml_config_file_description/) :
 
 ```
 $ cp /usr/local/etc/kcare-nexpose.yml.template /usr/local/etc/kcare-nexpose.yml

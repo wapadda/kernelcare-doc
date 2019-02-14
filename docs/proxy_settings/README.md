@@ -9,14 +9,12 @@ As long as your servers have access to the Internet, even behind NAT —  you wi
 
 Generally, KernelCare requires connection to only two servers for a proper work:
 
-**cln.cloudlinux.com (69.175.3.9)**
-**patches.kernelcare.com (69.175.3.11) **
+**cln.cloudlinux.com**
+**patches.kernelcare.com**
 
-Both IPs specified above might change in the future so additional check is required before adding firewall rules.
+An additional address is used for KernelCare agent installation/update:
 
-An additional IP is used for KernelCare agent installation/update:
-
-**repo.cloudlinux.com (69.175.3.2)**
+**repo.cloudlinux.com**
 
 ![](/images/patchingthroughfirewall.png)
 

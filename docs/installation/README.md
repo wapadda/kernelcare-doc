@@ -23,6 +23,8 @@ If you are using key-based license, run:
 $ /usr/bin/kcarectl --register KEY
 ```
 
+KEY is the registration key code string provided when you sign up for purchase or trial of the product.
+
 If you are experiencing **_Key limit reached_** error after the end of the trial period you should first unregister the server by running:
 
 ```

@@ -4,6 +4,30 @@
 KernelCare.ePortal is a web management console for KernelCare for servers located behind the firewall, with no internet access. It is part of KernelCare Enterprise offering, and should be installed on premisses
 
 
+## ePortal Hardware Requirements
+
+
+ePortal machine disk size doesn't change with the number of connected servers.
+
+Requirements are always the same:
+
+100 GB minimum
+200 GB recommended
+SSD
+
+**SSD is the crucial requirement.**
+
+As far as other requirements concerned, we have tested the following configuration and the following number of connected servers:
+
+10k of connected machines is the maximum for the following requirements:
+`o` VM,
+`o` 1 VCPU
+`o` 1 GB RAM 
+75k of connected machines is the maximum for the following requirements:
+`o` Core i5
+`o` 1 CPU
+`o` 4 GB RAM.
+
 ## Installation
 
 
@@ -147,20 +171,22 @@ To access KernelCare.eportal management console, connect to:
 And enter your login & password
 
 ![](/images/access_eportal.png)
-You can manage your login information using [kc.eportal tool](/kernelcare_enterprise/#managing-users) .
+You can manage your login information using [kc.eportal tool](/managing_users/) .
 
 ## PatchSet Deployment
 
 
 [ePortal v0.8+]
 
-KernelCare.ePortal has built-in mechanism to download latest patches. To start using it, click on ‘Patch Source’ link in KernelCare.ePortal navigational bar. Your patch source access info will be provided by your KernelCare representative.
+KernelCare.ePortal has built-in mechanism to download latest patches. To start using it, click _Patch Source_ link in KernelCare.ePortal navigational bar and then click Settings. Your patch source access info will be provided by your KernelCare representative.
 
-![](/images/eportal_dep01.jpg)
+![](/images/eportal_dep01_1_zoom70.png)
 
-Once you set up patch source access info, you will get to a list of available patchsets. You can always go back & change your access info by clicking on ‘Source’ link.
 
-![](/images/eportal_dep02_zoom87.png)
+Once you set up patch source access info, you will get to a list of available patchsets. You can always go back & change your access info by clicking _Source_ link.
+
+![](/images/eportal_dep02_1_zoom70.png)
+
 Clicking on [changelog] will provide changelog for given patchset.
 Clicking on [deploy this patch, and all before it] will download and deploy this patchset and all the patchsets above. It is impossible to deploy patchsets out of order.
 
@@ -170,23 +196,38 @@ Clicking on [deploy this patch, and all before it] will download and deploy this
 ## Managing Keys
 
 
-To register new servers you need to create a KernelCare key used for the registration.
-Click _Add_ button, so a new registration key will be automatically generated and shown in the list below.
+To register new servers you need to create a KernelCare key that will be used for server registration.
+To go to the list of keys, click the KernelCare ePortal logo at the top left.
 
+![](/images/key-menu_zoom70.png)
 
-![](/images/hmfile_hash_13c22427.png)
-The key itself will be used as part of the registration command on individual server. You can provide a description for the key, as well as max servers that can be registered under that key.
-Removing the key would remove all servers under the key.
+To edit a key, click ![](/images/eportal_keys_edit.png) . The _Edit_ tab opens.
+To remove a key, click ![](/images/eportal_keys_remove.png) . Please note, that removing the key would remove all servers under that key.
+Click a key to go to Servers tab with the list of [servers registered](/managing_servers/) under that key. You can also remove servers on that tab.
 
-Clicking on the key would let you see the information about [servers registered](/kernelcare_enterprise/#managing-servers) under that key, as well as remove servers.
+To create a new registration click _Create_ tab.
+   ![](/images/key-creation_zoom70.png) 
+Fill in the following fields:
+
+**Key** —  you can provide a key name or leave the field empty, so an automatically generated name will be used
+**Description** — you can provide a description for the key
+**Server Limit** — the amount of servers that can be registered under that key
+**Feed** — select a specific feed or leave empty.
+
+Click _Save_ to add the key. The new registration key will be created and added to the list. The key itself will be used as a part of the registration command on an individual server.
+Click _Save and Add Another_ to save this key and add one more key.
+Click _Save and Continue Editing_ to add the key and open the key edit tab.
+Click _Cancel_ to return to the key list tab without adding a new key.
 
 
 ## Managing Servers
 
 
-You can see servers belonging to the key by clicking on the key itself in [Managing Keys](/kernelcare_enterprise/#managing-keys) interface.
+You can see servers belonging to the key by clicking on the key itself in [Managing Keys](/managing_keys/) interface.
 
-![](/images/server_list.png)
+![](/images/server_list_1_zoom70.png)
+
+
 The screen shows servers registered under the key, their IP, hostname, effective kernel as well as the time of registration and last check in.
 
 ### Managing Script
@@ -280,11 +321,11 @@ Feeds are intended to manage patchsets on the server, and they provide a possibi
 
 To get into Feeds Management interface go to Settings → Feeds:
 
-![](/images/feedmanagement1_zoom70.png)
+![](/images/feed-button_zoom70.png)
 
 On this page a user can manage the existing feeds: create, delete, edit.
 
-![](/images/feedmanagement2_zoom70.png)
+![](/images/feed-menu_zoom70.png)
 
 Available options:
 Name — a name of a feed.
@@ -305,7 +346,7 @@ On the main ePortal page, a user can set the corresponding key <> feed pair. Thi
 
 By default, a new key is bound to the default feed, alternatively, a user can choose a desired feed from the drop-down menu.
 
-![](/images/feedmanagement5_zoom70.png)
+![](/images/feedmanagement5_01_zoom70.png)
 
 Note that when removing a feed all keys attached to this feed will be moved to the default feed.
 
@@ -397,7 +438,7 @@ $ curl -s https://repo.cloudlinux.com/kernelcare/kernelcare_install.sh | bash
 $ /usr/bin/kcarectl --register key_from_your_eportal
 ```
 
-## Deploying kernelcare
+## Deploying KernelCare
 
 
 To deploy kernelcare client software to use ePortal, following enviornment variables should be setup prior to RPM install:

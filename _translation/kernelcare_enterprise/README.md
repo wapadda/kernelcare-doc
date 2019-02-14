@@ -4,6 +4,8 @@ title: KernelCare.ePortal
 
 # KernelCare.ePortal
 
+## ePortal Hardware Requirements
+
 ## Installation
 
 ## Managing Users
@@ -16,7 +18,7 @@ title: KernelCare.ePortal
 
 ## Managing Servers
 
-## Deploying kernelcare
+## Deploying KernelCare
 
 ## KernelCare client config file
 
