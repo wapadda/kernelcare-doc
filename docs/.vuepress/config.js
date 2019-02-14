@@ -10,12 +10,6 @@ module.exports = {
       title: "Documentation",
       description: "Kernelcare documentation"
     }
-    // TODO: temporary!
-    // "/ru/": {
-    //   lang: "ru",
-    //   title: "Документация",
-    //   description: "Документация Kernelcare"
-    // }
   },
   theme: "cloudlinux",
   themeConfig: {
@@ -24,22 +18,14 @@ module.exports = {
     sidebarDepth: 2,
     logo: "/logo.svg",
     try_free: "https://cloudlinux.com/kernelcare-free-trial5",
-    bottomLinks: [
-      { text: "How to", url: "#" },
-      { text: "Getting started", url: "#" },
-      {
-        text: "Contact support",
-        url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
-      },
-      { text: "Blog", url: "https://www.cloudlinux.com/kernelcare-blog" }
-    ],
+
     social: [
-      { url: "https://www.facebook.com/kernelcare/", logo: "/fb.svg" },
-      { url: "https://twitter.com/kernelcare/", logo: "/tw.svg" },
-      { url: "https://linkedin.com/company/cloudlinux", logo: "/in.svg" },
+      { url: "https://www.facebook.com/kernelcare/", logo: "/fb.png" },
+      { url: "https://twitter.com/kernelcare/", logo: "/tw.png" },
+      { url: "https://linkedin.com/company/cloudlinux", logo: "/in.png" },
       {
         url: "https://www.youtube.com/channel/UCZ3YMHWnMP7TaxlXVay5-aw",
-        logo: "/ytube.svg"
+        logo: "/ytube.png"
       }
     ],
     cloudlinuxSite: "https://cloudlinux.com",
@@ -59,11 +45,21 @@ module.exports = {
           }
         },
         // algolia docsearch options for current locale
-        algolia: {
-          apiKey: 'c81913402fd913c6851439a56d3ad963',
-          indexName: 'kernelcare',
-          appId: 'HU6RMR9IB4'
-        },
+        // algolia: {
+        //   apiKey: 'c81913402fd913c6851439a56d3ad963',
+        //   indexName: 'kernelcare',
+        //   appId: 'HU6RMR9IB4'
+        // },
+
+        bottomLinks: [
+          { text: "How to", url: "#" },
+          { text: "Getting started", url: "#" },
+          {
+            text: "Contact support",
+            url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
+          },
+          { text: "Blog", url: "https://www.cloudlinux.com/kernelcare-blog" }
+        ],
 
         sidebar: [
           {
@@ -94,46 +90,46 @@ module.exports = {
           }
         ]
       },
-      "/ru/": {
-        selectText: "Выберите язык",
-        label: "Русский",
-        editLinkText: "Отредактировать на GitHub",
-        serviceWorker: {
-          updatePopup: {
-            message: "Новый контент доступен",
-            buttonText: "Обновить"
-          }
-        },
-        algolia: {},
-        sidebar: [
-          {
-            title: "Содержание",
-            collapsable: false,
-            children: [
-              "/ru/installation/",
-              "/ru/settings/",
-              "/ru/command_line/",
-              "/ru/config_options/",
-              "/ru/disabling_some_patches/",
-              "/ru/delayed_feed/",
-              "/ru/extra_patchset/",
-              "/ru/sticky_patches/",
-              "/ru/nagios_plugin/",
-              "/ru/zabbix_template/",
-              "/ru/upgrade/",
-              "/ru/uninstall/",
-              "/ru/technology/",
-              "/ru/reseller_partner_ui/",
-              "/ru/kernelcare_enterprise/",
-              "/ru/kcare-nexpose/",
-              "/ru/kernelcare_whmcs_plugin/",
-              "/ru/proxy_settings/",
-              "/ru/eol_ubuntu_lts_kernels_support/",
-              "/ru/downloading_documentation/"
-            ]
-          }
-        ]
-      }
+      // "/ru/": {
+      //   selectText: "Выберите язык",
+      //   label: "Русский",
+      //   editLinkText: "Отредактировать на GitHub",
+      //   serviceWorker: {
+      //     updatePopup: {
+      //       message: "Новый контент доступен",
+      //       buttonText: "Обновить"
+      //     }
+      //   },
+      //   algolia: {},
+      //   sidebar: [
+      //     {
+      //       title: "Содержание",
+      //       collapsable: false,
+      //       children: [
+      //         "/ru/installation/",
+      //         "/ru/settings/",
+      //         "/ru/command_line/",
+      //         "/ru/config_options/",
+      //         "/ru/disabling_some_patches/",
+      //         "/ru/delayed_feed/",
+      //         "/ru/extra_patchset/",
+      //         "/ru/sticky_patches/",
+      //         "/ru/nagios_plugin/",
+      //         "/ru/zabbix_template/",
+      //         "/ru/upgrade/",
+      //         "/ru/uninstall/",
+      //         "/ru/technology/",
+      //         "/ru/reseller_partner_ui/",
+      //         "/ru/kernelcare_enterprise/",
+      //         "/ru/kcare-nexpose/",
+      //         "/ru/kernelcare_whmcs_plugin/",
+      //         "/ru/proxy_settings/",
+      //         "/ru/eol_ubuntu_lts_kernels_support/",
+      //         "/ru/downloading_documentation/"
+      //       ]
+      //     }
+      //   ]
+      // }
     }
   }
 };
