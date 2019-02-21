@@ -11,14 +11,14 @@ We will continue to support such kernels until Ubuntu LTS release will reach EOL
 
 _Affected EOL kernels:_
 
-Ubuntu 14.04 (v3.16) LTS
-Ubuntu 14.04 (v3.19) LTS
-Ubuntu 14.04 (v4.2) LTS
+* Ubuntu 14.04 (v3.16) LTS
+* Ubuntu 14.04 (v3.19) LTS
+* Ubuntu 14.04 (v4.2) LTS
 
 _Fully supported kernels:_
 
-Ubuntu 14.04 (v3.13) LTS
-Ubuntu 14.04 (v4.4) LTS
+* Ubuntu 14.04 (v3.13) LTS
+* Ubuntu 14.04 (v4.4) LTS
 
 **Ubuntu LTS 16.04 Kernel Support Schedule:**
 
@@ -27,17 +27,17 @@ Ubuntu 14.04 (v4.4) LTS
 
 _Affected EOL kernels:_
 
-Ubuntu 16.04.2 (v4.8) - supported until Aug 2017
+* Ubuntu 16.04.2 (v4.8) - supported until Aug 2017
 
-Fully supported kernels:
+_Fully supported kernels:_
 
-Ubuntu 16.04.0(v4.4)
-Ubuntu 16.04.1(v4.4)
-Ubuntu 16.04.3(vTBD)
-Ubuntu 16.04.4(vTBD)
-Ubuntu 16.04.5(vTBD)
+* Ubuntu 16.04.0(v4.4)
+* Ubuntu 16.04.1(v4.4)
+* Ubuntu 16.04.3(vTBD)
+* Ubuntu 16.04.4(vTBD)
+* Ubuntu 16.04.5(vTBD)
 
-For more information on previous and upcoming releases please check the [Ubuntu Releases wiki](https://wiki.ubuntu.com/Releases) .
+For more information on previous and upcoming releases please check the [Ubuntu Releases wiki](https://wiki.ubuntu.com/Releases).
 
-If you have any questions, please contact our [support team](https://cloudlinux.zendesk.com/hc/requests/new) .
+If you have any questions, please contact our [support team](https://cloudlinux.zendesk.com/hc/requests/new).
 

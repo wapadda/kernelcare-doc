@@ -7,15 +7,15 @@ This is done via `sysctl` command.
 
 When new patchset loads, KernelCare sysctl options get reset. To prevent that we added a file:
 
-_/etc/sysconfig/kcare/sysctl.conf_
+`/etc/sysconfig/kcare/sysctl.conf`
 
 Options in this file will be loaded automatically on new patchset load.
 
 To disable loading this options, specify:
 
-_LOAD_KCARE_SYSCTL=0_ in _/etc/sysconfig/kcare/kcare.conf_
+`LOAD_KCARE_SYSCTL=0` in `/etc/sysconfig/kcare/kcare.conf`
 
-To disable the patch, set the corresponding kcare option to 1.
+To disable the patch, set the corresponding kcare option to `1`.
 
 Patches that can be disabled:
 

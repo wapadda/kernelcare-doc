@@ -52,13 +52,13 @@ module.exports = {
         // },
 
         bottomLinks: [
-          { text: "How to", url: "#" },
-          { text: "Getting started", url: "#" },
+          { text: "How to", url: "https://www.kernelcare.com/install-kernelcare/" },
+          { text: "Sales and Technical FAQs", url: "https://www.kernelcare.com/faq/" },
           {
             text: "Contact support",
             url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
           },
-          { text: "Blog", url: "https://www.cloudlinux.com/kernelcare-blog" }
+          { text: "Blog", url: "https://www.kernelcare.com/blog/" }
         ],
 
         sidebar: [
@@ -84,8 +84,7 @@ module.exports = {
               "/kcare-nexpose/",
               "/kernelcare_whmcs_plugin/",
               "/proxy_settings/",
-              "/eol_ubuntu_lts_kernels_support/",
-              "/downloading_documentation/"
+              "/eol_ubuntu_lts_kernels_support/"
             ]
           }
         ]
@@ -124,8 +123,7 @@ module.exports = {
       //         "/ru/kcare-nexpose/",
       //         "/ru/kernelcare_whmcs_plugin/",
       //         "/ru/proxy_settings/",
-      //         "/ru/eol_ubuntu_lts_kernels_support/",
-      //         "/ru/downloading_documentation/"
+      //         "/ru/eol_ubuntu_lts_kernels_support/"
       //       ]
       //     }
       //   ]

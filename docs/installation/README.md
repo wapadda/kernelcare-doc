@@ -23,7 +23,7 @@ If you are using key-based license, run:
 $ /usr/bin/kcarectl --register KEY
 ```
 
-KEY is the registration key code string provided when you sign up for purchase or trial of the product.
+`KEY` is the registration key code string provided when you sign up for purchase or trial of the product.
 
 If you are experiencing **_Key limit reached_** error after the end of the trial period you should first unregister the server by running:
 
@@ -45,7 +45,7 @@ If you would like to run update manually:
 $ /usr/bin/kcarectl --update
 ```
 
-To check current kernel compatibility with KernelCare use the following [script](https://raw.githubusercontent.com/iseletsk/kernelchecker/master/py/kc-compat.py) by running:
+To check current kernel compatibility with KernelCare, use the following [script](https://raw.githubusercontent.com/iseletsk/kernelchecker/master/py/kc-compat.py) by running:
 
 ```
 curl -s https://raw.githubusercontent.com/iseletsk/kernelchecker/master/py/kc-compat.py | python
@@ -78,7 +78,7 @@ $ bash ksplice2kcare $KERNELCARE_KEY$
 
 The key can be created/retrieved in KernelCare Keys section of CLN.
 
-If you want to use IP based licenses run:
+If you want to use IP based licenses, run:
 
 ```
 $ bash ksplice2kcare IP
@@ -86,11 +86,11 @@ $ bash ksplice2kcare IP
 
 You have to add IP license for that server, and it is just two letters: IP, not the actual IP.
 
-By default the script will attempt 3 times to uninstall ksplice, waiting 60 seconds in between. You can run it using _nohup_ if you don't want to wait.
+By default the script will attempt 3 times to uninstall ksplice, waiting 60 seconds in between. You can run it using `nohup` if you don't want to wait.
 
-You can change that by editing the script and changing _RETRY_ and _SLEEP_ values.
+You can change that by editing the script and changing `RETRY` and `SLEEP` values.
 
-The script will exit with exit code 0 and message _Done_ on success. Otherwise it will produce exit code -1.
+The script will exit with exit code `0` and message _Done_ on success. Otherwise, it will produce exit code `-1`.
 
-Complete log file can be found at _/var/log/ksplice2kcare.log._
+Complete log file can be found at `/var/log/ksplice2kcare.log`.
 
