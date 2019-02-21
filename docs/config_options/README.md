@@ -19,6 +19,7 @@ kcarectl behavior can be configured using `/etc/sysconfig/kcare/kcare.conf`
 |`STICKY_PATCH=KEY` | Retrieve sticky patch from `KEY` (see CLN, Key Edit); not supported for IP based servers or ePortal.|
 |`STICKY_PATCH=DDMMYY` | Stick patch to a particular date. More info at [Sticky Patches](/sticky_patches/) .|
 |`REPORT_FQDN=True|False` | Force using Fully Qualified Domain as a hostname. False by default.|
+|`FORCE_GID=N`|Use this group ID for symlink protection patch. By default, it's 48 (default Apache user GID) or 99 (`nobody` user)|
 
 
 
