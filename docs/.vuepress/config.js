@@ -13,6 +13,11 @@ module.exports = {
   },
   theme: "cloudlinux",
   themeConfig: {
+    repo: "cloudlinux/kernelcare-doc",
+    editLinks: true,
+    docsBranch: "dev",
+    docsDir: "docs",
+
     defaultURL: "/installation/",
     redirectionMapping: urls,
     sidebarDepth: 2,
@@ -36,7 +41,7 @@ module.exports = {
         // label for this locale in the language dropdown
         label: "English",
         // text for the edit-on-github link
-        editLinkText: "Edit this page on GitHub",
+        editLinkText: "Edit this page",
         // config for Service Worker
         serviceWorker: {
           updatePopup: {
