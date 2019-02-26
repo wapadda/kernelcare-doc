@@ -6217,6 +6217,10 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue-analytics-facebook-pixel@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vue-analytics-facebook-pixel/-/vue-analytics-facebook-pixel-1.0.1.tgz#a49cf55108792eedd1072b1a6123af95baa2f58a"
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.1.tgz#b2d3d95402a811602380783ea4f566eb875569a2"

@@ -18,6 +18,8 @@ module.exports = {
     docsBranch: "dev",
     docsDir: "docs",
 
+    fbPixelID: "645174729237247",
+
     defaultURL: "/installation/",
     redirectionMapping: urls,
     sidebarDepth: 2,
