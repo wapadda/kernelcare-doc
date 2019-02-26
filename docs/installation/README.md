@@ -18,13 +18,13 @@ apt install python3-openssl
 To install KernelCare run:
 
 ```
-curl -s https://repo.cloudlinux.com/kernelcare/kernelcare_install.sh | bash
+url -s https://kernelcare.com/installer | bash
 ```
 
 or:
 
 ```
-wget -qq -O - https://repo.cloudlinux.com/kernelcare/kernelcare_install.sh | bash
+wget -qq -O - https://kernelcare.com/installer | bash
 ```
 
 If you are using IP-based license, nothing else required to be done.
@@ -57,16 +57,16 @@ If you would like to run update manually:
 $ /usr/bin/kcarectl --update
 ```
 
-To check current kernel compatibility with KernelCare, use the following [script](https://raw.githubusercontent.com/iseletsk/kernelchecker/master/py/kc-compat.py) by running:
+To check current kernel compatibility with KernelCare, use the following [script](https://kernelcare.com/checker) by running:
 
 ```
-curl -s https://raw.githubusercontent.com/iseletsk/kernelchecker/master/py/kc-compat.py | python
+curl -s https://kernelcare.com/checker | python
 ```
 
 or:
 
 ```
-wget -qq -O - https://raw.githubusercontent.com/iseletsk/kernelchecker/master/py/kc-compat.py | python
+wget -qq -O - https://kernelcare.com/checker | python
 ```
 
 More information can be found on the link: [https://www.kernelcare.com/faq/](https://www.kernelcare.com/faq/)
