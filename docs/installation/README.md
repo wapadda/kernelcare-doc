@@ -18,7 +18,7 @@ apt install python3-openssl
 To install KernelCare run:
 
 ```
-url -s https://kernelcare.com/installer | bash
+curl -s https://kernelcare.com/installer | bash
 ```
 
 or:
