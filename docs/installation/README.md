@@ -3,16 +3,28 @@
 
 KernelCare is compatible with 64-bit versions of CentOS/RHEL 6.x and 7.x, CloudLinux 6.x and 7.x, Virtuozzo/PCS/OpenVZ 2.6.32, Debian 8 and 9, Proxmox VE 4, Virt-SIG/Xen4CentOS 6 and 7, Ubuntu 14.04, 15.04 and 16.04 kernels. The list of compatible kernels can be found on the following link: [https://patches.kernelcare.com/](https://patches.kernelcare.com/) .
 
+OpenSSL Python Library is a dependency for KernelCare. To install it on RPM-based systems, run:
+
+```
+yum install pyOpenSSL
+```
+
+On DEB-based systems, run:
+
+```
+apt install python3-openssl
+```
+
 To install KernelCare run:
 
 ```
-curl -s https://repo.cloudlinux.com/kernelcare/kernelcare_install.sh | bash
+curl -s https://kernelcare.com/installer | bash
 ```
 
 or:
 
 ```
-wget -qq -O - https://repo.cloudlinux.com/kernelcare/kernelcare_install.sh | bash
+wget -qq -O - https://kernelcare.com/installer | bash
 ```
 
 If you are using IP-based license, nothing else required to be done.
@@ -45,16 +57,16 @@ If you would like to run update manually:
 $ /usr/bin/kcarectl --update
 ```
 
-To check current kernel compatibility with KernelCare, use the following [script](https://raw.githubusercontent.com/iseletsk/kernelchecker/master/py/kc-compat.py) by running:
+To check current kernel compatibility with KernelCare, use the following [script](https://kernelcare.com/checker) by running:
 
 ```
-curl -s https://raw.githubusercontent.com/iseletsk/kernelchecker/master/py/kc-compat.py | python
+curl -s https://kernelcare.com/checker | python
 ```
 
 or:
 
 ```
-wget -qq -O - https://raw.githubusercontent.com/iseletsk/kernelchecker/master/py/kc-compat.py | python
+wget -qq -O - https://kernelcare.com/checker | python
 ```
 
 More information can be found on the link: [https://www.kernelcare.com/faq/](https://www.kernelcare.com/faq/)
