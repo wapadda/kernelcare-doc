@@ -6,13 +6,13 @@ KernelCare is compatible with 64-bit versions of CentOS/RHEL 6.x and 7.x, CloudL
 To install KernelCare run:
 
 ```
-curl -s https://kernelcare.com/installer | bash
+curl -s https://repo.cloudlinux.com/kernelcare/kernelcare_install.sh | bash
 ```
 
 or:
 
 ```
-wget -qq -O - https://kernelcare.com/installer | bash
+wget -qq -O - https://repo.cloudlinux.com/kernelcare/kernelcare_install.sh | bash
 ```
 
 If you are using IP-based license, nothing else required to be done.
@@ -45,16 +45,16 @@ If you would like to run update manually:
 $ /usr/bin/kcarectl --update
 ```
 
-To check current kernel compatibility with KernelCare, use the following [script](https://kernelcare.com/checker) by running:
+To check current kernel compatibility with KernelCare, use the following [script](https://raw.githubusercontent.com/iseletsk/kernelchecker/master/py/kc-compat.py) by running:
 
 ```
-curl -s https://kernelcare.com/checker | python
+curl -s https://raw.githubusercontent.com/iseletsk/kernelchecker/master/py/kc-compat.py | python
 ```
 
 or:
 
 ```
-wget -qq -O - https://kernelcare.com/checker | python
+wget -qq -O - https://raw.githubusercontent.com/iseletsk/kernelchecker/master/py/kc-compat.py | python
 ```
 
 More information can be found on the link: [https://www.kernelcare.com/faq/](https://www.kernelcare.com/faq/)
