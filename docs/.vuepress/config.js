@@ -51,12 +51,11 @@ module.exports = {
             buttonText: "Refresh"
           }
         },
-        // algolia docsearch options for current locale
-        // algolia: {
-        //   apiKey: 'c81913402fd913c6851439a56d3ad963',
-        //   indexName: 'kernelcare',
-        //   appId: 'HU6RMR9IB4'
-        // },
+        algolia: {
+          apiKey: '72b99b2f6b6a799a02a845854d728014',
+          indexName: 'kernelCare',
+          appId: 'KMC9498739'
+        },
 
         bottomLinks: [
           { text: "How to", url: "https://www.kernelcare.com/install-kernelcare/" },
