@@ -34,11 +34,17 @@ Basic Linux skills are sufficient to deploy KernelCare on AWS. Simple deployment
 
 As long as your servers have access to the Internet, even behind NAT – you will be able to use KernelCare patch server without any problems.
 
-![](/images/AWS_arch.png)
+Generally, KernelCare requires HTTPS connection to two servers for the proper work:
+
+* cln.cloudlinux.com
+* patches.kernelcare.com
+
+
+![](/images/AWS_arch1.png)
 
 If your servers don't have direct Internet access but can gain access to the Internet using proxy, the configuration is not that different. KernelCare can pick up standard environment variables for proxy.
 
-![](/images/AWS_proxy_arch.png)
+![](/images/AWS_proxy_arch1.png)
 
 Make sure you have environment settings for proxy setup, and everything else will be the same as if the servers were directly connected to the Internet:
 
