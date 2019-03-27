@@ -40,11 +40,11 @@ Generally, KernelCare requires HTTPS connection to two servers for the proper wo
 * patches.kernelcare.com
 
 
-![](/images/AWS_arch1.png)
+![](/images/AWS_arch2.png)
 
 If your servers don't have direct Internet access but can gain access to the Internet using proxy, the configuration is not that different. KernelCare can pick up standard environment variables for proxy.
 
-![](/images/AWS_proxy_arch1.png)
+![](/images/AWS_proxy_arch2.png)
 
 Make sure you have environment settings for proxy setup, and everything else will be the same as if the servers were directly connected to the Internet:
 
