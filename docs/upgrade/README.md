@@ -42,7 +42,7 @@ kcarectl --set-patch-type extra --update
 To enable extra patches without update, run:
 
 ```
-kcarectll --set-patch-type extra
+kcarectl --set-patch-type extra
 ```
 
 The _extra_ patch will be applied on the next automatic update.
