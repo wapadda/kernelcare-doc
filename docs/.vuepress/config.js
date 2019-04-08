@@ -52,9 +52,8 @@ module.exports = {
           }
         },
         algolia: {
-          apiKey: '72b99b2f6b6a799a02a845854d728014',
-          indexName: 'kernelCare',
-          appId: 'KMC9498739'
+          apiKey: '9e2f9685334c9bab4a296dce7b5b77cd',
+          indexName: 'kernelcare',
         },
 
         bottomLinks: [
