@@ -108,6 +108,31 @@ Install KernelCare.eportal:
 $ yum install kcare-eportal
 ```
 
+## How to adjust proxy on ePortal machine
+
+On ePortal machine, you should define the same proxy settings as you use in the command line.
+
+You need this file: `/etc/uwsgi/emperor.ini`
+
+Its content looks like:
+
+```
+[uwsgi]
+uid = nginx
+gid = nginx
+emperor = /etc/uwsgi/vassals
+```
+
+Add two more lines:
+
+```
+env = http_proxy=your_proxy_here
+env = https_proxy=your_proxy_here
+```
+
+::: tip Note
+It is important to set both `http_proxy` and `https_proxy`.
+:::
 
 ## Managing Users
 
