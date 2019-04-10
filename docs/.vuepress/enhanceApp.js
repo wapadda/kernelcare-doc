@@ -15,8 +15,8 @@ export default ({
   });
 
   const isClient = typeof window !== "undefined";
-  if (isClient && siteData.themeConfig.fbPixelID) {
+  if (isClient && siteData.fbPixelID) {
     Vue.use(VueFacebookPixel);
-    Vue.analytics.fbq.init(siteData.themeConfig.fbPixelID);
+    Vue.analytics.fbq.init(siteData.fbPixelID);
   }
 };

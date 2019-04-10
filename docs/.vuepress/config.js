@@ -2,6 +2,12 @@ const urls = require("./urls-mapping.js");
 
 module.exports = {
   base: "/",
+
+  // tracking ids
+  head: [["script", { src: "https://js.hs-scripts.com/5408110.js" }]], // HubSpot
+  ga: "UA-12711721-6", // google analitics
+  fbPixelID: "645174729237247", // facebook pixel
+
   locales: {
     // The key is the path for the locale to be nested under.
     // As a special case, the default locale can use '/' as its path.
@@ -17,8 +23,6 @@ module.exports = {
     editLinks: true,
     docsBranch: "dev",
     docsDir: "docs",
-
-    fbPixelID: "645174729237247",
 
     defaultURL: "/installation/",
     redirectionMapping: urls,
@@ -52,13 +56,19 @@ module.exports = {
           }
         },
         algolia: {
-          apiKey: '9e2f9685334c9bab4a296dce7b5b77cd',
-          indexName: 'kernelcare',
+          apiKey: "9e2f9685334c9bab4a296dce7b5b77cd",
+          indexName: "kernelcare"
         },
 
         bottomLinks: [
-          { text: "How to", url: "https://www.kernelcare.com/install-kernelcare/" },
-          { text: "Sales and Technical FAQs", url: "https://www.kernelcare.com/faq/" },
+          {
+            text: "How to",
+            url: "https://www.kernelcare.com/install-kernelcare/"
+          },
+          {
+            text: "Sales and Technical FAQs",
+            url: "https://www.kernelcare.com/faq/"
+          },
           {
             text: "Contact support",
             url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
@@ -94,7 +104,7 @@ module.exports = {
             ]
           }
         ]
-      },
+      }
       // "/ru/": {
       //   selectText: "Выберите язык",
       //   label: "Русский",
