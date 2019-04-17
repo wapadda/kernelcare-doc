@@ -3,6 +3,10 @@
 
 The script marks vulnerabilities detected by Nexpose, but patched by KernelCare as exceptions.
 
+:::tip Note
+If you are new in Nexpose please read the [official documentation](https://nexpose.help.rapid7.com/docs/) how to setup and operations.
+:::
+
 ## Installation
 
 
@@ -54,6 +58,10 @@ IP address in Nexpose and the one in KernelCare ePortal should be the same. If y
 :::
  
 ### Supported report types
+
+:::warning Note
+Please make sure that you have configured [site](https://nexpose.help.rapid7.com/docs/what-is-a-site) and [scan](https://nexpose.help.rapid7.com/docs/selecting-a-scan-engine-for-a-site) before creation a report.
+:::
 
 _raw-xml-v2_
 
