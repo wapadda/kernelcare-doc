@@ -110,29 +110,22 @@ $ yum install kcare-eportal
 
 ## How to adjust proxy on ePortal machine
 
-On ePortal machine, you should define the same proxy settings as you use in the command line.
+On the ePortal machine, you should define the same proxy settings as you use in the command line.
 
-You need this file: `/etc/uwsgi/emperor.ini`
+To do so, add <span class="notranslate">`PROXY = 'http://example.com'`</span> to the following file: <span class="notranslate">`/usr/share/kcare-eportal/config/local.py`</span>
 
-Its content looks like:
+If this file doesn't exist, create it with a NGINX owner:
 
-```
-[uwsgi]
-uid = nginx
-gid = nginx
-emperor = /etc/uwsgi/vassals
-```
-
-Add two more lines:
+<div class="notranslate">
 
 ```
-env = http_proxy=your_proxy_here
-env = https_proxy=your_proxy_here
+echo "PROXY = 'http://example.com'" > /usr/share/kcare-eportal/config/local.py
+chown nginx:nginx /usr/share/kcare-eportal/config/local.py
 ```
+</div>
 
-::: tip Note
-It is important to set both `http_proxy` and `https_proxy`.
-:::
+
+Restart ePortal (see [Stopping & Starting](/kernelcare_enterprise/#stopping-starting) section, choose a corresponding OS).
 
 ## Managing Users
 
@@ -260,9 +253,9 @@ If scripts do not work on your ePortal, you might need to update ePortal first. 
 To view the list of all servers IDs that are connected to the particular key, do the following:
 * In the UI go to the page with the list of keys. Then click the particular key. The list of servers connected to this key will be displayed.
 
-To view the list of all servers IDs that are not connected to any key, do the following:
-* In the UI go to the page with the list of keys. Then click _Reset filters_ button.
-* OR just follow this URL _http://EPORTAL_IP/admin/kcserver/_.
+To view the list of all servers IDs that are not connected to any key, use the <span class="notranslate">_Servers_</span> button on the navigation bar.
+
+![](/images/eportal-servers.png)
 
 
 ### Script to unroll patchsets
