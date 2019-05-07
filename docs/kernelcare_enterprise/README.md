@@ -566,39 +566,6 @@ nginx ePortal access log: `/var/log/nginx/kcare-eportal.log`
 nginx error log: `/var/log/nginx/error_log`
 
 
-## ePortal API
-
-
-:::tip Note
-version 0.9+
-:::
-
-KernelCare.ePortal provides limited API to remove servers based on key & IP.
-
-To access the API, first setup API token used for authentication:
-
-`echo your_token > /usr/share/kcare-eportal/config/api.token`
-
-API method: `unregister_by_key.plain`
-
-Parameters:
-
-* key - KernelCare.ePortal key under which server is registered;
-* IP - remote server IP as displayed in KernelCare.ePortal;
-* token - API token.
-
-Example:
-
-```
-https://ePortal_url/admin/api/kcare/unregister_by_key.plain?key=2M6gmIS6fHh39aF2&ip=10.1.10.74&token=your_token
-```
-
-Return code: int
-* `-3` - API token file does not exist;
-* `-2` - API token doesn't match;
-* `-1` - Internal error, see `/var/log/uwsgi/uwsgi-emperor.log` for details;
-* any other number - number of servers removed.
-
 ## Nagios & Zabbix support
 
 
