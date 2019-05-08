@@ -484,6 +484,122 @@ If `AUTO_UPDATE` set to `True`, KernelCare client will check in every 4 hours, a
 `REGISTRATION_URL` - URL used to register/unregister server
 
 
+## Deployment Automation
+
+It is possible to use automation tools like Ansible/Puppet/Chef/Salt to install and operate KernelCare on a big number of systems.
+
+The deployment process includes:
+
+* downloading, distributing and installing KernelCare agent package
+* updating `/etc/sysconfig/kcare/kcare.conf` with ePortal-related entries
+* registering KernelCare agents using an activation key
+
+### Ansible
+
+To start the automated deployment, you need to specify the following information:
+
+* ePortal server name (or IP) in the `eportal_srv` Ansible variable. Other config file options can be found at [Config Options](/config_options/) and [KernelCare client config file](/kernelcare_enterprise/#kernelcare-client-config-file) (ePortal).
+* an activation key in the `activation_key` Ansible variable. Activation keys can be generated in ePortal as described in [Managing Keys](/kernelcare_enterprise/#managing-keys) (ePortal). 
+
+Ansible playbook for deployment phase may look like (RPM-based distributions):
+
+```
+- hosts: el7_based
+  vars:
+    eportal_srv: http://192.168.245.105
+    activation_key: jvQ5T0SVMt7736a9
+  tasks:
+  - name: Copy an installation package, use the package that suits your target platform (see KernelCare install script for download links)
+    get_url:
+      url: https://repo.cloudlinux.com/kernelcare/kernelcare-latest-7.rpm
+      dest: /root/kernelcare-latest-7.rpm
+    delegate_to: 127.0.0.1
+    become: false
+
+  - name: Distribute the installation package
+    copy:
+      src: /root/kernelcare-latest-7.rpm
+      dest: /root/kernelcare-latest-7.rpm
+
+  - name: install the package from a local file
+    yum:
+      name: /root/kernelcare-latest-7.rpm
+      state: present
+
+  - name: Update kcare.conf with ePortal configuration
+    blockinfile:
+      path: /etc/sysconfig/kcare/kcare.conf
+      block: |
+        PATCH_SERVER={{ eportal_srv }}/
+        REGISTRATION_URL={{ eportal_srv }}/admin/api/kcare
+
+  - name: register KernelCare agents
+    command: /usr/bin/kcarectl --register {{ activation_key }}
+```
+
+If you use Ubuntu/Debian, the playbook looks like:
+
+```
+- hosts: deb8_based
+  vars:
+    eportal_srv: http://192.168.245.105
+    activation_key: jvQ5T0SVMt7736a9
+  tasks:
+  - name: Copy an installation package, use the package that suits your target platform (see KernelCare install script for download links)
+    get_url:
+      url: https://repo.cloudlinux.com/kernelcare-debian/kernelcare-latest-8.deb
+      dest: /root/kernelcare-latest-8.deb
+    delegate_to: 127.0.0.1
+    become: false
+
+  - name: Distribute an installation package
+    copy:
+      src: /root/kernelcare-latest-8.deb
+      dest: /root/kernelcare-latest-8.deb
+
+  - name: install the package from a local file
+    apt:
+      deb: /root/kernelcare-latest-8.deb
+
+  - name: Update kcare.conf with ePortal configuration
+    blockinfile:
+      path: /etc/sysconfig/kcare/kcare.conf
+      block: |
+        PATCH_SERVER={{ eportal_srv }}/
+        REGISTRATION_URL={{ eportal_srv }}/admin/api/kcare
+
+  - name: register KernelCare agents
+    command: /usr/bin/kcarectl --register {{ activation_key }}
+```
+
+Ansible playbook file example for KernelCare agent removal:
+
+```
+- hosts: el7_based
+  tasks:
+    - name: unregister KernelCare agents
+      command: /usr/bin/kcarectl --unregister
+
+    - name: remove kernelcare package
+      yum:
+        name: kernelcare
+        state: absent
+```
+
+For Ubuntu/Debian systems:
+
+```
+- hosts: deb8_based
+  tasks:
+    - name: unregister KernelCare agents
+      command: /usr/bin/kcarectl --unregister
+
+    - name: remove kernelcare package
+      apt:
+        name: kernelcare
+        state: absent
+```
+
 ## Changing ePortal IP
 
 
@@ -565,39 +681,6 @@ nginx ePortal access log: `/var/log/nginx/kcare-eportal.log`
 
 nginx error log: `/var/log/nginx/error_log`
 
-
-## ePortal API
-
-
-:::tip Note
-version 0.9+
-:::
-
-KernelCare.ePortal provides limited API to remove servers based on key & IP.
-
-To access the API, first setup API token used for authentication:
-
-`echo your_token > /usr/share/kcare-eportal/config/api.token`
-
-API method: `unregister_by_key.plain`
-
-Parameters:
-
-* key - KernelCare.ePortal key under which server is registered;
-* IP - remote server IP as displayed in KernelCare.ePortal;
-* token - API token.
-
-Example:
-
-```
-https://ePortal_url/admin/api/kcare/unregister_by_key.plain?key=2M6gmIS6fHh39aF2&ip=10.1.10.74&token=your_token
-```
-
-Return code: int
-* `-3` - API token file does not exist;
-* `-2` - API token doesn't match;
-* `-1` - Internal error, see `/var/log/uwsgi/uwsgi-emperor.log` for details;
-* any other number - number of servers removed.
 
 ## Nagios & Zabbix support
 
