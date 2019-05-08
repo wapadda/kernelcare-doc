@@ -6,14 +6,6 @@ export default ({
   router, // the router instance for the app
   siteData // site metadata
 }) => {
-  router.beforeEach((to, from, next) => {
-    if (to.path === "/") {
-      next(siteData.themeConfig.defaultURL);
-    } else {
-      next();
-    }
-  });
-
   const isClient = typeof window !== "undefined";
   if (isClient && siteData.fbPixelID) {
     Vue.use(VueFacebookPixel);
