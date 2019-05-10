@@ -153,20 +153,35 @@ $ kc.eportal -c admin -p NewPassword
 
 ### LDAP authorization
 
+ePortal supports secure connection using LDAP authorization.
 
- 
-It is possible to support a secure connection. To do so, specify the right format of connection string as a key to enter user login.
+To enter user login, you should specify an LDAP connection string.
 
-For example:
+Example:
 
-`uid=%s,dc=example,dc=com`
+```
+uid=%s,dc=example,dc=com
+```
 
-:::tip Note
-This key is a must in a connection string and should include `%s`
-:::
+Where 
 
-You are also able to specify security settings and set-up timeouts using LDAP URL.
+`uid=%s` is a key attribute and should include `%s`
 
+You are also able to specify security settings and set-up timeouts using the LDAP URL.
+
+When you log in to ePortal with your LDAP credentials for the first time, a user with LDAP username, read-only permissions, and LDAP description is created in the database by default (`http://<eportal>/admin/user/`).
+
+In the picture, you can see one user created with `kc.eportal` command line interface and two users logged in with LDAP credentials.
+
+![](/images/eportalLDAPusers.png)
+
+To set this LDAP user administrator permissions, set `read-only=False` (edit access required).
+
+#### **Is there a difference between local users and LDAP users?**
+
+The difference is in the login procedure. Login and password for a local user are saved in the local database but for an LDAP user, only login and permission are saved in the local database and authorization proceeds via LDAP server.
+
+When a user logs in to ePortal, ePortal checks the user credentials in the local database at first. If the credentials are found, the user will be authorized, and only if the user credentials are not found, ePortal redirects to LDAP.
 
 ## Accessing ePortal
 
