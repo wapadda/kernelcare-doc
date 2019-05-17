@@ -17,7 +17,7 @@ module.exports = {
       description: "Kernelcare documentation"
     }
   },
-  // theme: "cloudlinux",
+  theme: "cloudlinux",
   themeConfig: {
     repo: "cloudlinux/kernelcare-doc",
     editLinks: true,
