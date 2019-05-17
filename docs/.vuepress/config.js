@@ -42,8 +42,12 @@ module.exports = {
     cloudlinuxSite: "https://cloudlinux.com",
     locales: {
       "/": {
+        stayInTouch: "Stay in touch",
+        title: "Language",
+        tryFree: "Try Free",
+        search: "Search",
         // text for the language dropdown
-        selectText: "Languages",
+        selectText: "En",
         // label for this locale in the language dropdown
         label: "English",
         // text for the edit-on-github link
