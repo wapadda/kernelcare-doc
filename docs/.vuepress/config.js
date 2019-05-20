@@ -88,6 +88,7 @@ module.exports = {
               "/installation/",
               "/settings/",
               "/command_line/",
+              "/how_to's/",
               "/config_options/",
               "/disabling_some_patches/",
               "/delayed_feed/",

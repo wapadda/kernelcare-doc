@@ -1,0 +1,257 @@
+# How-To's
+
+## How to disable HyperThreading (SMT) without reboot: KernelCare case
+
+This article explains how to disable or enable SMT (Simultaneous multithreading) without rebooting using KernelCare, to help mitigate the recent MDS/Zombieload vulnerability.
+
+Disabling CPU simultaneous multithreading (SMT) is one of the mitigations needed to counter the recent MDS vulnerability (also known as ‘Zombieload’). There is a performance impact that depends on the configuration of the hosting platform and its workload patterns. You should also consider the impact of other mitigation strategies, such as assigning dedicated cores to guests (e.g. VMs).
+
+You can control and get the status of SMT with the kernel’s `sysfs` interface. There are two files, both in the `/sys/devices/system/cpu/smt` directory:
+
+* `control`
+* `active`
+
+
+If you cannot find the `/sys/devices/system/cpu/smt` directory, this means your running kernel does not support SMT. In this case, you need to apply KernelCare patches so the SMT controls become available to your system. Use the `kcarectrl` command:
+
+```
+kcarectl --update
+Kernel is safe
+```
+
+```
+ls -l /sys/devices/system/cpu/smt
+-r--r--r-- 1 root root 4096 May 17 13:06 active
+-rw-r--r-- 1 root root 4096 May 17 13:06 control
+```
+
+As soon as you have these files in place, it is possible to proceed with disabling SMT.
+
+### SMT Control
+
+`/sys/devices/system/cpu/smt/control`
+
+This file lets you enable or disable SMT, and shows its state. There are three values:
+
+1. `on`: The CPU supports SMT and it is enabled. All logical CPUs can be taken offline or online without restriction.
+2. `off`: The CPU supports SMT but it is disabled. Only so-called primary SMT threads can be taken offline/online without restriction. Attempts to put a non-primary sibling thread online will be rejected.
+3. `notsupported`: The CPU does not support SMT. You will not be able to write to the control file.
+
+### SMT Status
+
+`/sys/devices/system/cpu/smt/active`
+
+The contents of this file show the status of SMT (e.g. if two or more sibling threads are active on the same physical core the contents of this file is 1, if not: 0).
+
+Here are some commands to control SMT support (root permissions are required):
+
+#### Check the SMT state
+
+```
+cat /sys/devices/system/cpu/smt/active
+```
+
+#### Enable SMT
+
+```
+echo on > /sys/devices/system/cpu/smt/control
+```
+
+#### Disable SMT
+
+```
+echo off > /sys/devices/system/cpu/smt/control
+```
+
+Disabling SMT, [updating microcode](/how_to's/#how-to-update-microcode-without-reboot-with-vendor-provided-package), and applying KernelCare patches will protect your systems against the ZombieLoad vulnerability. Note, only the latter action is applicable to virtual systems (e.g. VMs, VPS and other cloud instance types).
+
+#### Example
+
+A video example can be seen [here](https://asciinema.org/a/zZYA3INITh59ObzSGp9OeLCdn).
+
+## How to update Microcode without reboot with vendor-provided package
+
+This article shows how to update the microcode of Intel CPUs running Linux.
+
+::: tip Note
+This article is subject to change and will be updated with instructions for other distributions.
+:::
+
+**Contents:**
+
+* [Updating microcode on Ubuntu and Debian](/how_to's/#updating-microcode-on-ubuntu-and-debian)
+* [Updating microcode on Red Hat Enterprise Linux (and derivatives)](/how_to's/#updating-microcode-on-red-hat-and-centos)
+
+
+::: tip Notes
+* These steps must be done as root.
+* The examples shown are for Debian. ([Click here](https://asciinema.org/a/pWVQb2xR2K65B9TAfWwgvhOvG) for a video example on Debian 9.)
+* If you have doubts your systems are fully protected against CPU- and kernel-related vulnerabilities, please [get in touch with us](mailto:sales@cloudlinux.com).
+:::
+
+### Updating microcode on Ubuntu and Debian
+
+1. Find the microcode package download link for your platform
+   
+    * Ubuntu: [https://usn.ubuntu.com/3977-1/](https://usn.ubuntu.com/3977-1/)
+    * Debian: [https://packages.debian.org/search?keywords=intel-microcode](https://packages.debian.org/search?keywords=intel-microcode)
+  
+2. Download the package
+
+:::tip Note
+Example shown for Debian 9
+:::
+
+```
+cd <a temporary directory, e.g. /tmp>
+mkdir firmware
+cd firmware
+wget http://security.debian.org/debian-security/pool/updates/non-free/i/intel-microcode/intel-microcode_3.20190514.1~deb9u1_amd64.deb
+```
+
+3. Check the downloaded package
+
+```
+md5sum intel-microcode_3.20190514.1~deb9u1_amd64.deb
+c7bc9728634137453e0f4821fb6bb436  intel-microcode_3.20190514.1~deb9u1_amd64.deb
+```
+
+A list of checksums is on [the Debian packages download page](https://packages.debian.org/stretch/amd64/intel-microcode/download).
+
+4. Unpack the package
+
+```
+dpkg -x intel-microcode_3.20190514.1~deb9u1_amd64.deb
+```
+
+5. Check the unpacked files
+
+```
+ls -l
+total 1896
+drwxr-xr-x 5 root root   53 May 15 04:18 etc
+-rw-r--r-- 1 root root 1940140 May 17 11:42 intel-microcode_3.20190514.1~deb9u1_amd64.deb
+drwxr-xr-x 3 root root   22 May 15 04:18 lib
+drwxr-xr-x 3 root root   19 May 15 04:18 usr
+```
+6. Create a backup of existing microcode:
+
+```
+test -d /lib/firmware/intel-ucode/ && mv /lib/firmware/intel-ucode/ /lib/firmware/intel-ucode.backup
+```
+
+7. Copy the new microcode and check it
+
+```
+cp -r lib/firmware/intel-ucode/ /lib/firmware/
+ls -l /lib/firmware/ | grep intel-ucode
+drwxr-xr-x  2 root root 4096 May 17 11:47 intel-ucode
+drwxr-xr-x  2 root root 4096 May 16 20:54 intel-ucode.backup
+```
+
+8. Check the current microcode version
+
+```
+dmesg | grep microcode
+[ 2.254717] microcode: sig=0x306a9, pf=0x10, revision=0x12
+[ 2.254820] microcode: Microcode Update Driver: v2.01 <tigran@aivazian.fsnet.co.uk>, Peter Oruba
+```
+
+9. (Optional) Double check the current microcode versions (revisions per core)
+
+```
+cat /proc/cpuinfo | grep -e microcode
+microcode : 0x12
+microcode : 0x12
+microcode : 0x12
+microcode : 0x12
+```
+
+10. Check the microcode reload file exists
+
+```
+ls -l /sys/devices/system/cpu/microcode/reload
+--w------- 1 root root 4096 May 17 11:54 /sys/devices/system/cpu/microcode/reload
+```
+
+11. Force the kernel to load the new microcode
+
+```
+echo 1 > /sys/devices/system/cpu/microcode/reload
+```
+
+12. Check the new microcode
+
+```
+dmesg | grep microcode
+[ 2.254717] microcode: sig=0x306a9, pf=0x10, revision=0x12
+[ 2.254820] microcode: Microcode Update Driver: v2.01 <tigran@aivazian.fsnet.co.uk>, Peter Oruba
+[ 1483.494573] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+[ 1483.495985] microcode: updated to revision 0x21, date = 2019-02-13
+[ 1483.496012] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+[ 1483.496698] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+[ 1483.497391] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+```
+
+13. (Optional) Double check the new microcode version (revisions per core)
+
+```
+cat /proc/cpuinfo | grep -e microcode
+microcode : 0x21
+microcode : 0x21
+microcode : 0x21
+microcode : 0x21
+```
+
+### Updating Microcode on Red Hat and CentOS
+
+For RHEL-based distributions, you can use the `microcode_ctl utility` to update microcode.
+
+1. Get the latest microcode by updating the `microcode_ctl` package
+
+```
+yum update microcode_ctl
+```
+
+2. Create a force file
+
+Create a `force-late-intel–06–4f–01` inside the firmware directory.
+
+```
+touch /lib/firmware/`uname -r`/force-late-intel-06-4f-01
+```
+
+3. Run the microcode update
+
+```
+/usr/libexec/microcode_ctl/update_ucode
+```
+
+4. Force the kernel to load the new microcode
+
+```
+echo 1 > /sys/devices/system/cpu/microcode/reload
+```
+
+5. Check the new microcode
+
+```
+dmesg | grep microcode
+[ 2.254717] microcode: sig=0x306a9, pf=0x10, revision=0x12
+[ 2.254820] microcode: Microcode Update Driver: v2.01 <tigran@aivazian.fsnet.co.uk>, Peter Oruba
+[ 1483.494573] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+[ 1483.495985] microcode: updated to revision 0x21, date = 2019-02-13
+[ 1483.496012] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+[ 1483.496698] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+[ 1483.497391] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+```
+
+6. (Optional) Double check the new microcode version (revisions per core)
+
+```
+cat /proc/cpuinfo | grep -e microcode
+microcode : 0x21
+microcode : 0x21
+microcode : 0x21
+microcode : 0x21
+```
