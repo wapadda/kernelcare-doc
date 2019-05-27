@@ -81,6 +81,7 @@ This article is subject to change and will be updated with instructions for othe
 
 * [Updating microcode on Ubuntu and Debian](/how_to's/#updating-microcode-on-ubuntu-and-debian)
 * [Updating microcode on Red Hat Enterprise Linux (and derivatives)](/how_to's/#updating-microcode-on-red-hat-and-centos)
+* [Updating Microcode on CentOS 6](/how_to's/#updating-microcode-on-centos-6)
 
 
 ::: tip Notes
@@ -255,3 +256,90 @@ microcode : 0x21
 microcode : 0x21
 microcode : 0x21
 ```
+
+### Updating Microcode on CentOS 6
+
+1. Get the latest microcode by updating the `microcode_ctl` package
+
+```
+yum update microcode_ctl
+```
+
+2. If `yum update microcode_ctl` outputs the following:
+
+```   
+Package(s) microcode_ctl available, but not installed.
+No Packages marked for Update
+```
+
+you need to install the package manually.
+
+3. To install `microcode_ctl` package, run the command:
+
+```
+yum install microcode_ctl
+```
+
+The command output:
+
+```
+Installed:
+  microcode_ctl.x86_64 2:1.17-33.11.el6_10                                                                                                                                 
+
+Complete!
+```
+
+4. Check CPU microcode version:
+
+```
+cat /proc/cpuinfo | grep microcode
+microcode       : 9
+microcode       : 9
+microcode       : 9
+microcode       : 9
+```
+
+5. Try to update microcode
+
+```
+microcode_ctl -u
+```
+
+If you see the output:
+
+```
+microcode_ctl: writing microcode (length: 2370560)
+microcode_ctl: cannot open /dev/cpu/microcode for writing errno=2 (No such file or directory)
+```
+
+You need to load driver microcode.
+
+6. Load driver microcode
+
+```
+modprobe microcode
+```
+
+7. Try to update microcode again:
+
+```
+microcode_ctl -u
+```
+If you see the output: 
+
+```
+microcode_ctl: writing microcode (length: 2370560)
+microcode_ctl: microcode successfully written to /dev/cpu/microcode
+```
+then update is successful.
+
+8. Check version:
+
+```
+cat /proc/cpuinfo | grep microcode
+microcode       : 17
+microcode       : 17
+microcode       : 17
+microcode       : 17
+```
+
