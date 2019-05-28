@@ -15,6 +15,11 @@ module.exports = {
       lang: "en-US", // this will be set as the lang attribute on <html>
       title: "Documentation",
       description: "Kernelcare documentation"
+    },
+    "/jp/": {
+      lang: "jp",
+      title: "ドキュメンテーション",
+      description: "KernelCare ドキュメンテーション"
     }
   },
   theme: "cloudlinux",
@@ -42,16 +47,16 @@ module.exports = {
     cloudlinuxSite: "https://cloudlinux.com",
     locales: {
       "/": {
-        stayInTouch: "Stay in touch",
+        // text for the language dropdown title
         title: "Language",
-        tryFree: "Try Free",
-        search: "Search",
         // text for the language dropdown
         selectText: "En",
         // label for this locale in the language dropdown
         label: "English",
         // text for the edit-on-github link
         editLinkText: "Edit this page",
+        tryFree: "Try Free",
+        search: "Search",
         // config for Service Worker
         serviceWorker: {
           updatePopup: {
@@ -63,7 +68,6 @@ module.exports = {
           apiKey: "9e2f9685334c9bab4a296dce7b5b77cd",
           indexName: "kernelcare"
         },
-
         bottomLinks: [
           {
             text: "How to",
@@ -106,6 +110,65 @@ module.exports = {
               "/kernelcare_whmcs_plugin/",
               "/proxy_settings/",
               "/eol_ubuntu_lts_kernels_support/"
+            ]
+          }
+        ]
+      },
+      "/jp/": {
+        title: "言語",
+        selectText: "日本語",
+        label: "日本語",
+        editLinkText: "編集",
+        tryFree: "無料で試す",
+        search: "検索する",
+        serviceWorker: {
+          updatePopup: {
+            message: "新しいコンテンツが利用可能です",
+            buttonText: "最新の情報に更新"
+          }
+        },
+        algolia: {},
+        stayInTouch: "連絡を取り合う",
+        bottomLinks: [
+            {
+                text: "ヘルプと使い方",
+                url: "https://www.kernelcare.com/install-kernelcare/"
+            },
+            {
+                text: "よく寄せられる質問",
+                url: "https://www.kernelcare.com/faq/"
+            },
+            {
+                text: "サポート",
+                url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
+            },
+            { text: "ブログ", url: "https://www.kernelcare.com/blog/" }
+        ],
+        sidebar: [
+          {
+            title: "コンテンツ",
+            collapsable: false,
+            children: [
+              "/jp/installation/",
+              "/jp/settings/",
+              "/jp/command_line/",
+              "/jp/how_to's/",
+              "/jp/config_options/",
+              "/jp/disabling_some_patches/",
+              "/jp/delayed_feed/",
+              "/jp/extra_patchset/",
+              "/jp/sticky_patches/",
+              "/jp/nagios_plugin/",
+              "/jp/zabbix_template/",
+              "/jp/upgrade/",
+              "/jp/uninstall/",
+              "/jp/technology/",
+              "/jp/AWS_deployment_guide/",
+              "/jp/kernelcare_enterprise/",
+              "/jp/kcare-nexpose/",
+              "/jp/kernelcare_whmcs_plugin/",
+              "/jp/proxy_settings/",
+              "/jp/eol_ubuntu_lts_kernels_support/"
             ]
           }
         ]
