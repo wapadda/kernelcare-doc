@@ -151,25 +151,69 @@ To change user's password:
 $ kc.eportal -c admin -p NewPassword
 ```
 
-### LDAP authorization
+### Authorization using LDAP
 
-ePortal supports secure connection using LDAP authorization.
+If you are using ePortal but would like to restrict access for a specific user group then LDAP authorization allows you to check if a user is a member of that specific group.
+LDAP search query determines if a user is a member of a group with allowed access.
+Moreover, when using group authorization you need to make sure that a user with a specific DN is a member of that allowed access group.
 
-To enter user login, you should specify an LDAP connection string.
-
-Example:
+For example, if you’d like to allow access to ePortal server for the users from the `mathematicians` group, you might have a configuration like this:
 
 ```
-uid=%s,dc=example,dc=com
+URL: ldap://ldap.forumsys.com 
+Filter: dc=example,dc=com??sub?(&(ou=mathematicians)(uniqueMember=uid=%s,dc=example,dc=com)) 
+Connection string: uid=%s,dc=example,dc=com 
 ```
 
-Where 
+To make any user with any DN to have access to the ePortal server, you might have a configuration like this:
 
-`uid=%s` is a key attribute and should include `%s`
+```
+URL: ldap://ldap.forumsys.com 
+Connection string: uid=%s,dc=example,dc=com
+```
 
-You are also able to specify security settings and set-up timeouts using the LDAP URL.
+**URL**
 
-When you log in to ePortal with your LDAP credentials for the first time, a user with LDAP username, read-only permissions, and LDAP description is created in the database by default (`http://<eportal>/admin/user/`).
+* `ldap://example.com:389` — a verified encrypted (TLS) connection;
+* `ldaps://example.com:636` — an SSL connection.
+
+**Filter**
+
+* `dc=example,dc=com??sub?(&(ou=mathematicians)(uniqueMember=uid=%s,dc=example,dc=com))`
+
+  Filter could be empty as ePortal uses this filter to make a search after LDAP bind (if the result is not empty, the user is authorized).
+
+**Connection String (DN template)**
+
+* `uid=%s,dc=example,dc=com`
+
+  Must contain login placeholder (`%s`).
+
+You can use URL to adjust security and timeout parameters
+
+* `strict_check=0` — to disable strict certificate check (enabled by default);
+* `tls=0` — to disable TLS (enabled by default);
+* `timeout=30` (in seconds, 5 by default).
+  
+For example, the URL with the security parameters:
+
+```
+ldap://example.com?strict_check=0&timeout=30&tls=0
+```
+
+:::tip Note
+* You could use `%s` in both `Connection String` and `Filter` fields as a placeholder for user login. 
+* Each LDAP implementation has its own peculiar properties, so we cannot provide any specific information about LDAP URL configuration because it depends entirely on the exact LDAP server configuration.
+:::
+
+#### Additional
+
+* To retrieve more information, please see [The LDAP URL Format RFC](https://tools.ietf.org/html/rfc2255).
+* If you have a question on configuring your LDAP access, please contact our [support](https://www.kernelcare.com/support/).
+
+#### Log in to ePortal with your LDAP credentials
+
+When you log in to ePortal with your LDAP credentials for the first time, a user with LDAP username, read-only permissions, and `LDAP` description is created in the database by default (`http://<eportal>/admin/user/`).
 
 In the picture, you can see one user created with `kc.eportal` command line interface and two users logged in with LDAP credentials.
 
@@ -177,7 +221,7 @@ In the picture, you can see one user created with `kc.eportal` command line inte
 
 To set this LDAP user administrator permissions, set `read-only=False` (edit access required).
 
-#### **Is there a difference between local users and LDAP users?**
+#### Is there a difference between local users and LDAP users?
 
 The difference is in the login procedure. Login and password for a local user are saved in the local database but for an LDAP user, only login and permission are saved in the local database and authorization proceeds via LDAP server.
 
