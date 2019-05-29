@@ -4,7 +4,10 @@ module.exports = {
   base: "/",
 
   // tracking ids
-  head: [["script", { src: "https://js.hs-scripts.com/5408110.js" }]], // HubSpot
+  head: [
+      ["script", { src: "https://js.hs-scripts.com/5408110.js" }], // HubSpot
+      ["link", { rel: "icon", href: "/favicon.ico" }],
+  ],
   ga: "UA-12711721-6", // google analitics
   fbPixelID: "645174729237247", // facebook pixel
 
