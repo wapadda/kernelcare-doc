@@ -685,7 +685,7 @@ Database (sqlite) is stored in `/usr/share/kcare-eportal/data.sqlite`
 To reset database:
 
 ```
-$ rm /usr/share/kcare-eportal/data.sqlite
+$ mv /usr/share/kcare-eportal/data.sqlite /usr/share/kcare-eportal/data.sqlite_backup
 $ cd /usr/share/kcare-eportal && python createdb.py
 ```
 
