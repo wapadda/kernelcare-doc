@@ -248,7 +248,7 @@ Keyのリストに移動するには、左上のKernelCare ePortalロゴをク�
 ## サーバの管理
 
 
- [Keyを管理する](/jp/kernelcare_enterprise/#Keyを管理する) のインターフェイスで Key自体をクリックすると、そのKeyに属するサーバを確認できます。
+ [Keyを管理する](/jp/kernelcare_enterprise/#keyを管理する) のインターフェイスで Key自体をクリックすると、そのKeyに属するサーバを確認できます。
 
 ![](/images/server_list_1_zoom70.png)
 
@@ -515,7 +515,7 @@ Ansible/Puppet/Chef/Saltのような自動化ツールを使用して、多数�
 自動展開を始めるためには、下記の情報を特定する必要があります。:
 
 *  `eportal_srv` Ansible変数の中の ePortalサーバ名（もしくはIP）。 他の設定ファイルオプションは、 [設定オプション](/jp/config_options/) と [KernelCareクライアント設定ファイル](/jp/kernelcare_enterprise/#KernelCareクライアント設定ファイル) (ePortal)で見つけることができます。
-*  `activation_key` Ansible変数の中の アクティベーションkey。 アクティベーションkeyは、ePortalの中にある [Keyを管理する](/jp/kernelcare_enterprise/#Keyを管理する) (ePortal)で、生成することができます。
+*  `activation_key` Ansible変数の中の アクティベーションkey。 アクティベーションkeyは、ePortalの中にある [Keyを管理する](/jp/kernelcare_enterprise/#keyを管理する) (ePortal)で、生成することができます。
 
 展開フェーズ用のAnsible playbookは、下記の様になるはずです(RPMベースのディストリビューション)。:
 
