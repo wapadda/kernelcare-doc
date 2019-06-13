@@ -246,7 +246,7 @@ You can manage your login information using [kc.eportal tool](/kernelcare_enterp
 ePortal v0.8+
 :::
 
-KernelCare.ePortal has built-in mechanism to download latest patches. To start using it, click _Patch Source_ link in KernelCare.ePortal navigational bar and then click Settings. Your patch source access info will be provided by your KernelCare representative.
+KernelCare.ePortal has built-in mechanism to download latest patches. To start using it, click _Patch Source_ link in KernelCare.ePortal navigational bar and then click Settings. To get access to the Patch Source, please contact sales@kernelcare.com and request your Patch Source access credentials.
 
 ![](/images/eportal_dep01_1_zoom70.png)
 
