@@ -1,7 +1,26 @@
 {
   "index_name": "kernelcare-jp",
   "start_urls": [
-    "https://docs.kernelcare.com/jp/"
+    "https://docs.kernelcare.com/jp/installation/",
+    "https://docs.kernelcare.com/jp/settings/",
+    "https://docs.kernelcare.com/jp/command_line/",
+    "https://docs.kernelcare.com/jp/how_to's/",
+    "https://docs.kernelcare.com/jp/config_options/",
+    "https://docs.kernelcare.com/jp/disabling_some_patches/",
+    "https://docs.kernelcare.com/jp/delayed_feed/",
+    "https://docs.kernelcare.com/jp/extra_patchset/",
+    "https://docs.kernelcare.com/jp/sticky_patches/",
+    "https://docs.kernelcare.com/jp/nagios_plugin/",
+    "https://docs.kernelcare.com/jp/zabbix_template/",
+    "https://docs.kernelcare.com/jp/upgrade/",
+    "https://docs.kernelcare.com/jp/uninstall/",
+    "https://docs.kernelcare.com/jp/technology/",
+    "https://docs.kernelcare.com/jp/AWS_deployment_guide/",
+    "https://docs.kernelcare.com/jp/kernelcare_enterprise/",
+    "https://docs.kernelcare.com/jp/kcare-nexpose/",
+    "https://docs.kernelcare.com/jp/kernelcare_whmcs_plugin/",
+    "https://docs.kernelcare.com/jp/proxy_settings/",
+    "https://docs.kernelcare.com/jp/eol_ubuntu_lts_kernels_support/"
   ],
   "stop_urls": [
     "/#"
@@ -30,5 +49,5 @@
   "selectors_exclude": [
     ".table-of-contents"
   ],
-  "scrap_start_urls": false
+  "js_wait": 1
 }

@@ -131,7 +131,11 @@ module.exports = {
             buttonText: "最新の情報に更新"
           }
         },
-        algolia: {},
+        algolia: {
+          apiKey: "c4c1bbf8d3bb32958b26dd7cc5e74472",
+          indexName: "kernelcare-jp",
+          appId: "R7FCMJM4P7"
+        },
         stayInTouch: "連絡を取り合う",
         bottomLinks: [
             {
