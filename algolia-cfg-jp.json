@@ -1,18 +1,13 @@
 {
-  "index_name": "kernelcare",
+  "index_name": "kernelcare-jp",
   "start_urls": [
-    "http://docs.kernelcare.com"
+    "https://docs.kernelcare.com/jp/"
   ],
   "stop_urls": [
-    "/#",
-    "/jp/"
+    "/#"
   ],
   "selectors": {
-    "lvl0": {
-      "selector": "p.sidebar-heading.open",
-      "global": true,
-      "default_value": "Documentation"
-    },
+    "lvl0": ".content h1",
     "lvl1": ".content h1",
     "lvl2": ".content h2",
     "lvl3": ".content h3",
