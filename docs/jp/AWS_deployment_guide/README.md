@@ -203,10 +203,10 @@ KernelCareサブスクリプションにはe-mailまたはオンラインによ�
 
 ### 参考資料
 
-* KernelCare ウェブサイト: [https://www.kernelcare.com/jp/](https://www.kernelcare.com)
+* KernelCare ウェブサイト: [https://www.kernelcare.com/ja/](https://www.kernelcare.com/ja/)
 * KernelCare ブログ: [https://www.kernelcare.com/blog/](https://www.kernelcare.com/blog/)
 * KernelCare パッチサーバ: [http://patches.kernelcare.com](http://patches.kernelcare.com)
-* KernelCare のドキュメント: [http://docs.kernelcare.com/jp/](http://docs.kernelcare.com/)
+* KernelCare のドキュメント: [http://docs.kernelcare.com/jp/](http://docs.kernelcare.com/jp/)
 * CloudLinux Network – CLN (ポータル): [https://cln.cloudlinux.com](https://cln.cloudlinux.com)
 * CloudLinux 24時間365日オンラインサポートシステム: [https://cloudlinux.zendesk.com](https://cloudlinux.zendesk.com)
 

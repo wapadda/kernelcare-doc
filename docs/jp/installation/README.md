@@ -57,7 +57,7 @@ curl -s -L https://kernelcare.com/checker | python
 wget -qq -O - https://kernelcare.com/checker | python
 ```
 
-より詳細については次のリンクよりご確認ください。: [https://www.kernelcare.com/jp/faq/](https://www.kernelcare.com/jp/faq/)
+より詳細については次のリンクよりご確認ください。: [https://www.kernelcare.com/ja/faq/](https://www.kernelcare.com/ja/faq/)
 
 ## Kspliceからの切り替え
 
