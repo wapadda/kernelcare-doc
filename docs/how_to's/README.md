@@ -73,6 +73,11 @@ A video example can be seen [here](https://asciinema.org/a/zZYA3INITh59ObzSGp9Oe
 
 This article shows how to update the microcode of Intel CPUs running Linux.
 
+:::warning Warning
+To avoid possible issues with Microcode updating, enable SMT before the update.
+:::
+
+
 ::: tip Note
 This article is subject to change and will be updated with instructions for other distributions.
 :::
