@@ -27,6 +27,9 @@ ls -l /sys/devices/system/cpu/smt
 
 これらのファイルを配置したらすぐに、SMTを無効にすることができます。
 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RUGCvEO1hAE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### SMT のコントロール
 
 `/sys/devices/system/cpu/smt/control`
@@ -255,3 +258,5 @@ microcode : 0x21
 microcode : 0x21
 microcode : 0x21
 ```
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EydWy-b9uns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
