@@ -27,6 +27,9 @@ ls -l /sys/devices/system/cpu/smt
 
 As soon as you have these files in place, it is possible to proceed with disabling SMT.
 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RUGCvEO1hAE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### SMT Control
 
 `/sys/devices/system/cpu/smt/control`
@@ -72,6 +75,11 @@ A video example can be seen [here](https://asciinema.org/a/zZYA3INITh59ObzSGp9Oe
 ## How to update Microcode without reboot with vendor-provided package
 
 This article shows how to update the microcode of Intel CPUs running Linux.
+
+:::warning Warning
+To avoid possible issues with Microcode updating, enable SMT before the update.
+:::
+
 
 ::: tip Note
 This article is subject to change and will be updated with instructions for other distributions.
@@ -343,3 +351,4 @@ microcode       : 17
 microcode       : 17
 ```
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EydWy-b9uns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

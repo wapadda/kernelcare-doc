@@ -140,17 +140,17 @@ module.exports = {
         bottomLinks: [
             {
                 text: "ヘルプと使い方",
-                url: "https://www.kernelcare.com/install-kernelcare/"
+                url: "https://www.kernelcare.com/ja/install-kernelcare/"
             },
             {
                 text: "よく寄せられる質問",
-                url: "https://www.kernelcare.com/faq/"
+                url: "https://www.kernelcare.com/ja/faq/"
             },
             {
                 text: "サポート",
-                url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
+                url: "https://www.kernelcare.com/ja/support/"
             },
-            { text: "ブログ", url: "https://www.kernelcare.com/blog/" }
+            { text: "ブログ", url: "https://www.kernelcare.com/ja/blog/" }
         ],
         sidebar: [
           {
