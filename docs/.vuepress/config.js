@@ -17,7 +17,7 @@ module.exports = {
     "/": {
       lang: "en-US", // this will be set as the lang attribute on <html>
       title: "Documentation",
-      description: "Kernelcare documentation"
+      description: "KernelСare documentation"
     },
     "/jp/": {
       lang: "jp",
@@ -36,7 +36,7 @@ module.exports = {
     redirectionMapping: urls,
     sidebarDepth: 2,
     logo: "/logo.svg",
-    try_free: "https://cloudlinux.com/kernelcare-free-trial5",
+    try_free: "https://www.kernelcare.com/free-trial/",
 
     social: [
       { url: "https://www.facebook.com/kernelcare/", logo: "/fb.png" },
