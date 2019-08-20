@@ -22,7 +22,6 @@ repo.cloudlinux.com
 
 ## Patching servers through proxy
 
-
  
 If your servers don't have direct Internet access but can gain access to the Internet using proxy, the configuration is not that different. KernelCare can pick up standard environment variables for a proxy.
 
@@ -32,6 +31,29 @@ Make sure you have environment settings for proxy setup, and everything else wil
 # export http_proxy=http://proxy.domain.com:port
 # export https_proxy=http://proxy.domain.com:port
 ```
+
+:::tip Note
+Settings defined by `export` are case-insensitive, so the example above could be as follows:
+:::
+
+```
+# export HTTP_PROXY=http://proxy.domain.com:port
+# export HTTPS_PROXY=http://proxy.domain.com:port
+```
+
+You can define these settings in the KernelCare config `/etc/sysconfig/kcare/kcare.conf`.
+
+Example: 
+
+```
+$ cat /etc/sysconfig/kcare/kcare.conf
+AUTO_UPDATE=True
+HTTPS_PROXY=http://myproxy.com:59794
+```
+
+If you define these settings in the config, you no need to export them each `kcarectl` launch and no need to edit cron jobs.
+
+All `kcarectl` launches will be aware of proxy settings from the config. In this case, you need to set proxy settings only once. 
 
 ![](/images/patchingthroughproxy.png)
 
