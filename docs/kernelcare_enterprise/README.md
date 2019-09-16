@@ -758,3 +758,8 @@ or you can use [http://patches.kernelcare.com/downloads/nagios/check_kcare](http
 Access using `PARTNER_LOGIN/TOKEN` is not supported by KernelCare.ePortal.
 :::
 
+## Usage reports
+
+In common case, usage reports are sending automatically but when it's not possible, eportals saves the reports in `/usr/share/kcare-eportal/reports` which should be sent manually.
+
+
