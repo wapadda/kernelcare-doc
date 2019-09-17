@@ -760,19 +760,17 @@ Access using `PARTNER_LOGIN/TOKEN` is not supported by KernelCare.ePortal.
 
 ## Usage reports
 
-In common case, usage reports are sending automatically but when it's not possible, eportals will try to send report an email. That requires configured Sendmail (SSMTP) on the host. You can find a short instruction below.
+In common case, usage reports are sending automatically but when it's not possible, ePortals will try to send report as an email. That requires configured Sendmail (SSMTP) on the host. You can find a short instruction below.
 
-If mail sending attempt fails, eportal will save the reports in `/usr/share/kcare-eportal/reports` which should be sent manually.
+If mail sending attempt fails, ePortal will save the reports in `/usr/share/kcare-eportal/reports` which should be sent manually.
 
 ### How to configure Sendmail (SSMTP)
 
-First of all you need to install `ssmtp`
+First of all you need to install `ssmtp`:
 
     yum install -y ssmtp
 
-    apt-get install -y ssmtp
-
-Edit `/etc/ssmtp/ssmtp.conf` file accordingly your SMTP server configuration. Here is a simple config file describing most common way to connect to Gmail accounts. 
+Edit `/etc/ssmtp/ssmtp.conf` file in accordance with your SMTP server configuration. Here is a simple config file describing a common way to connect to Gmail accounts: 
 
     root=username@gmail.com
     mailhub=smtp.gmail.com:587
@@ -783,19 +781,19 @@ Edit `/etc/ssmtp/ssmtp.conf` file accordingly your SMTP server configuration. He
     FromLineOverride=YES
     TLS_CA_File=/etc/ssl/certs/ca-certificates.crt
 
-Actual location for a `TLS_CA_Files` depends on distrib:
+Actual location of a TLS_CA_Files depends on distrib:
 
-    "/etc/ssl/certs/ca-certificates.crt",                 // Debian/Ubuntu/Gentoo etc.
+    "/etc/ssl/certs/ca-certificates.crt",                // Debian/Ubuntu/Gentoo etc.
     "/etc/pki/tls/certs/ca-bundle.crt",                  // Fedora/RHEL 6
     "/etc/ssl/ca-bundle.pem",                            // OpenSUSE
     "/etc/pki/tls/cacert.pem",                           // OpenELEC
     "/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem", // CentOS/RHEL 7
 
-Also you could get if from
+Also you could get if from:
 
     curl-config --ca
 
-Now you can test the connection
+Now you can test a connection:
 
     echo -n 'Subject: test\n\nTesting ssmtp' | sendmail -v some-recipient@gmail.com
 
