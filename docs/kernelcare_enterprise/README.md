@@ -797,4 +797,14 @@ Now you can test a connection:
 
     echo -n 'Subject: test\n\nTesting ssmtp' | sendmail -v some-recipient@gmail.com
 
+## Custom environment variables
 
+You can define your own environment variables for ePortal process.
+
+There is the `/usr/share/kcare-eportal/environment` folder, which is basically daemon tools compatible envdir.
+
+For example, to disable the default https verification you can set the `PYTHONHTTPSVERIFY` environment variable to `0` as follows:
+
+```
+echo 0 > /usr/share/kcare-eportal/environment/PYTHONHTTPSVERIFY`
+```
