@@ -758,3 +758,14 @@ or you can use [http://patches.kernelcare.com/downloads/nagios/check_kcare](http
 Access using `PARTNER_LOGIN/TOKEN` is not supported by KernelCare.ePortal.
 :::
 
+## Custom environment variables
+
+You can define your own environment variables for ePortal process.
+
+There is the `/usr/share/kcare-eportal/environment` folder, which is basically daemon tools compatible envdir.
+
+For example, to disable the default https verification you can set the `PYTHONHTTPSVERIFY` environment variable to `0` as follows:
+
+```
+echo 0 > /usr/share/kcare-eportal/environment/PYTHONHTTPSVERIFY`
+```
