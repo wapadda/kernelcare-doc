@@ -2,11 +2,16 @@
 
 ## Issue description
 
-Commonly used security scanners can still see CVEs even if they are patched by KernelCare. It turns out that all their decisions about CVE are based on the currently installed (or not) kernel packages.
+Commonly used security scanners can still see CVEs even if they are patched by KernelCare. It turns out that all their decisions about CVE are based on:
+
+* currently installed (or not) kernel packages
+* uname information
 
 ## How does it work
 
-To calm them down, we have to manipulate with those kernel packages. Since scanners rely on `rpm -q` output we can override some functions there via `LD_PRELOAD` and force the script to output versions we need.
+To calm them down, we can manipulate with that information and the common part for DEB and RPM distributions relying on `uname -r` output.
+
+Since scanners on RPM distributions relies on `rpm -q` output, we can override some functions there via `LD_PRELOAD` and force the script to output versions we need.
 
 To deal with it, we will reload `showQueryPackage` to patch version information on the fly. It will change the information showing in rpm query results like this.
 
@@ -17,7 +22,8 @@ kernel-headers-3.10.0-693.17.1.el7.x86_64
 kernel-headers-3.10.0-957.21.3.el7.x86_64
 ```
 
-The reloaded function relies on `kcarectl --uname` and replaces the actual kernel version with our “effective version”. That behavior is enabled only for one user and will not interfere with others. That user should be used to run a credentialed scan over SSH.
+The reloaded functions rely on `kcarectl --uname` and replace the actual kernel version with our “effective version”.
+That behavior is enabled only for one user and will not interfere with others. That user should be used to run a credentialed scan over SSH.
 
 ## Installation
 
@@ -26,6 +32,18 @@ All you need to do on target systems is to install/update KernelCare agent with 
 ```
 KCARE_SCANNER_USER=username yum -y localinstall ./kernelcare-package.rpm
 ```
+Or update an existing package:
+
+```
+KCARE_SCANNER_USER=username yum update kernelcare
+```
+
+Or install:
+
+```
+curl -s -L https://kernelcare.com/installer | KCARE_SCANNER_USER=username bash
+```
+
 Where `username` is the user which will be used to run scanners on the server.
 After applying KernelCare patches (`kcarectl --update`) you will see rpm query result according to a kernel that the patches are provided.
 
