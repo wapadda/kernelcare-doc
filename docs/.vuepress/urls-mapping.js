@@ -229,5 +229,6 @@ module.exports = {
     "/eol_ubuntu_lts_kernels_support/",
   "/downloading_documentation.htm/": "/downloading_documentation/",
   "/downloading_documentation.htm": "/downloading_documentation/",
-  "/index.html?downloading_documentation.htm": "/downloading_documentation/"
+  "/index.html?downloading_documentation.htm": "/downloading_documentation/",
+  "/scanner_manipulation/": "/scanner_interface/"
 };

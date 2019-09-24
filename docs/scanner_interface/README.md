@@ -1,4 +1,4 @@
-# Scanner manipulation
+# Scanner Interface
 
 ## Issue description
 
