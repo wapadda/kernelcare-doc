@@ -549,7 +549,7 @@ It is possible to use automation tools like Ansible/Puppet/Chef/Salt to install 
 
 The deployment process includes:
 
-* downloading, distributing and installing KernelCare agent package
+* downloading and running the KernelCare agent installation script
 * updating `/etc/sysconfig/kcare/kcare.conf` with ePortal-related entries
 * registering KernelCare agents using an activation key
 
@@ -560,69 +560,29 @@ To start the automated deployment, you need to specify the following information
 * ePortal server name (or IP) in the `eportal_srv` Ansible variable. Other config file options can be found at [Config Options](/config_options/) and [KernelCare client config file](/kernelcare_enterprise/#kernelcare-client-config-file) (ePortal).
 * an activation key in the `activation_key` Ansible variable. Activation keys can be generated in ePortal as described in [Managing Keys](/kernelcare_enterprise/#managing-keys) (ePortal). 
 
-Ansible playbook for deployment phase may look like (RPM-based distributions):
+Ansible playbook for deployment phase may look like:
 
 ```
-- hosts: el7_based
+- hosts: kernelcare
   vars:
-    eportal_srv: http://192.168.245.105
-    activation_key: jvQ5T0SVMt7736a9
+    eportal_srv: http://192.168.250.19
+    activation_key: 89gRVCp1rY0ZQ053
   tasks:
-  - name: Copy an installation package, use the package that suits your target platform (see KernelCare install script for download links)
+  - name: Download the installation shell script
     get_url:
-      url: https://repo.cloudlinux.com/kernelcare/kernelcare-latest-7.rpm
-      dest: /root/kernelcare-latest-7.rpm
-    delegate_to: 127.0.0.1
-    become: false
+      url: "{{ eportal_srv }}/installer"
+      dest: /root/kc-install.sh
+      mode: '0744'
 
-  - name: Distribute the installation package
-    copy:
-      src: /root/kernelcare-latest-7.rpm
-      dest: /root/kernelcare-latest-7.rpm
-
-  - name: install the package from a local file
-    yum:
-      name: /root/kernelcare-latest-7.rpm
-      state: present
+  - name: Run the installation shell script
+    shell: /root/kc-install.sh >> /var/log/kcare_install.log
+    environment:
+      KCARE_REPO: "{{ eportal_srv|quote }}/repo"
 
   - name: Update kcare.conf with ePortal configuration
     blockinfile:
       path: /etc/sysconfig/kcare/kcare.conf
-      block: |
-        PATCH_SERVER={{ eportal_srv }}/
-        REGISTRATION_URL={{ eportal_srv }}/admin/api/kcare
-
-  - name: register KernelCare agents
-    command: /usr/bin/kcarectl --register {{ activation_key }}
-```
-
-If you use Ubuntu/Debian, the playbook looks like:
-
-```
-- hosts: deb8_based
-  vars:
-    eportal_srv: http://192.168.245.105
-    activation_key: jvQ5T0SVMt7736a9
-  tasks:
-  - name: Copy an installation package, use the package that suits your target platform (see KernelCare install script for download links)
-    get_url:
-      url: https://repo.cloudlinux.com/kernelcare-debian/kernelcare-latest-8.deb
-      dest: /root/kernelcare-latest-8.deb
-    delegate_to: 127.0.0.1
-    become: false
-
-  - name: Distribute an installation package
-    copy:
-      src: /root/kernelcare-latest-8.deb
-      dest: /root/kernelcare-latest-8.deb
-
-  - name: install the package from a local file
-    apt:
-      deb: /root/kernelcare-latest-8.deb
-
-  - name: Update kcare.conf with ePortal configuration
-    blockinfile:
-      path: /etc/sysconfig/kcare/kcare.conf
+      create: yes
       block: |
         PATCH_SERVER={{ eportal_srv }}/
         REGISTRATION_URL={{ eportal_srv }}/admin/api/kcare
@@ -634,27 +594,16 @@ If you use Ubuntu/Debian, the playbook looks like:
 Ansible playbook file example for KernelCare agent removal:
 
 ```
-- hosts: el7_based
+- hosts: kernelcare
   tasks:
     - name: unregister KernelCare agents
       command: /usr/bin/kcarectl --unregister
+      ignore_errors: yes
+      args:
+        removes: /usr/bin/kcarectl
 
     - name: remove kernelcare package
-      yum:
-        name: kernelcare
-        state: absent
-```
-
-For Ubuntu/Debian systems:
-
-```
-- hosts: deb8_based
-  tasks:
-    - name: unregister KernelCare agents
-      command: /usr/bin/kcarectl --unregister
-
-    - name: remove kernelcare package
-      apt:
+      package:
         name: kernelcare
         state: absent
 ```
