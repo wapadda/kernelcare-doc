@@ -572,12 +572,12 @@ Ansible playbook for deployment phase may look like:
     get_url:
       url: "{{ eportal_srv }}/installer"
       dest: /root/kc-install.sh
-      mode: '0744'
+      mode: '0700'
 
   - name: Run the installation shell script
     shell: /root/kc-install.sh >> /var/log/kcare_install.log
     environment:
-      KCARE_REPO: "{{ eportal_srv|quote }}/repo"
+      KCARE_REPO: "{{ eportal_srv }}/repo"
 
   - name: Update kcare.conf with ePortal configuration
     blockinfile:
