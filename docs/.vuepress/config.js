@@ -102,7 +102,7 @@ module.exports = {
               "/delayed_feed/",
               "/extra_patchset/",
               "/sticky_patches/",
-              "/scanner_manipulation/",
+              "/scanner_interface/",
               "/nagios_plugin/",
               "/zabbix_template/",
               "/upgrade/",
