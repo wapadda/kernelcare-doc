@@ -111,7 +111,6 @@ module.exports = {
               "/AWS_deployment_guide/",
               "/reseller_partner_ui/",
               "/kernelcare_enterprise/",
-              "/kcare-nexpose/",
               "/kernelcare_whmcs_plugin/",
               "/proxy_settings/",
               "/eol_ubuntu_lts_kernels_support/"
