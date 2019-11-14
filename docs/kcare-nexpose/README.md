@@ -1,4 +1,6 @@
-# Kcare-nexpose
+# Kcare-nexpose (deprecated)
+
+**This section is deprecated - refer to [Scanner Interface](/scanner_interface/) section for scanner-related information**
 
 
 The script marks vulnerabilities detected by Nexpose, but patched by KernelCare as exceptions.
