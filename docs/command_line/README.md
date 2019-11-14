@@ -58,7 +58,7 @@ Print certain system information.  With no OPTION, same as `-s`.
 
 ## Kernelcare Doctor
 
-There is a tool that collects essential information about kernelcare environment and sends it to the support team.
+This tool collects essential information about the KernelCare environment and sends it to the support team.
 
 ```
 # kcarectl --doctor
@@ -69,6 +69,8 @@ Please, provide above mentioned key to KernelCare Support Team
 
 ```
 
-After run it will generate a report and print out its ID which could be linked to the support ticket. 
+The command generates a report and prints out the ID which could be linked to a support ticket.
 
-NOTE: If there was some connection problem during report uploading, the report will be stored locally as `/root/cl-report`. That file should be sent to the support team manually.
+:::tip Note
+If there was some connection problem during report uploading, the report will be stored locally as `/root/cl-report`. This file should be sent to the support team manually.
+:::
