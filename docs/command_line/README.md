@@ -56,7 +56,7 @@ Print certain system information.  With no OPTION, same as `-s`.
 |`--version` | output version information and exit|
 
 
-## Kernelcare Doctor
+## kernelcare doctor
 
 This tool collects essential information about the KernelCare environment and sends it to the support team.
 
