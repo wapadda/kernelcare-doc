@@ -55,3 +55,20 @@ Print certain system information.  With no OPTION, same as `-s`.
 |`--help` | display this help and exit|
 |`--version` | output version information and exit|
 
+
+## Kernelcare Doctor
+
+There is a tool that collects essential information about kernelcare environment and sends it to the support team.
+
+```
+# kcarectl --doctor
+Generating report...
+Uploading...
+Key: FRWf74Zw11111111.83991334-1111-1111-1111-681ddd653e5f
+Please, provide above mentioned key to KernelCare Support Team
+
+```
+
+After run it will generate a report and print out its ID which could be linked to the support ticket. 
+
+NOTE: If there was some connection problem during report uploading, the report will be stored locally as `/root/cl-report`. That file should be sent to the support team manually.
