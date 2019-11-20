@@ -230,5 +230,6 @@ module.exports = {
   "/downloading_documentation.htm/": "/downloading_documentation/",
   "/downloading_documentation.htm": "/downloading_documentation/",
   "/index.html?downloading_documentation.htm": "/downloading_documentation/",
-  "/scanner_manipulation/": "/scanner_interface/"
+  "/scanner_manipulation/": "/scanner_interface/",
+  "/index.html?automation.htm": "/kernelcare_enterprise/#deployment-automation"
 };
