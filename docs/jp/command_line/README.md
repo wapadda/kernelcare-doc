@@ -72,7 +72,6 @@ Please, provide above mentioned key to KernelCare Support Team
 す。
 
 :::tip 注記
-レポートのアップロード中に接続の問題が発生した場合、レポートは/ root / cl-
-reportとしてローカルに保存されます。 このファイルは、サポートチームに手動で
+レポートのアップロード中に接続の問題が発生した場合、レポートは `/root/cl-report` としてローカルに保存されます。 このファイルは、サポートチームに手動で
 送信する必要があります。
 :::
