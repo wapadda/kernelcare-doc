@@ -55,3 +55,24 @@
 |`--help` | ヘルプを表示し、終了|
 |`--version` | バージョン情報を出力し、終了|
 
+## kernelcare doctor
+
+このツールは、KernelCare環境に関する重要な情報を収集し、サポートチームに送
+信します。
+
+```
+# kcarectl --doctor
+Generating report...
+Uploading...
+Key: FRWf74Zw11111111.83991334-1111-1111-1111-681ddd653e5f
+Please, provide above mentioned key to KernelCare Support Team
+```
+
+このコマンドはレポートを生成し、サポートチケットにリンクできるIDを出力しま
+す。
+
+:::tip 注記
+レポートのアップロード中に接続の問題が発生した場合、レポートは/ root / cl-
+reportとしてローカルに保存されます。 このファイルは、サポートチームに手動で
+送信する必要があります。
+:::

@@ -260,3 +260,94 @@ microcode : 0x21
 ```
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EydWy-b9uns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+### CentOS 6でのマイクロコードの更新
+
+1, `microcode_ctl` パッケージを更新して最新のマイクロコードを取得します
+
+```
+yum update microcode_ctl
+```
+
+2, `yum update microcode_ctl` が次を出力する場合,
+
+```
+Package(s) microcode_ctl available, but not installed.
+No Packages marked for Update
+```
+
+パッケージを手動でインストールする必要があります。
+
+3, `microcode_ctl` パッケージをインストールするには、次のコマンドを実行します
+
+```
+yum install microcode_ctl
+```
+
+コマンド出力:
+
+```
+Installed:
+  microcode_ctl.x86_64 2:1.17-33.11.el6_10                                                                                                                                 
+
+Complete!
+```
+ 
+4, CPUマイクロコードバージョンを確認します.
+
+```
+cat /proc/cpuinfo | grep microcode
+microcode       : 9
+microcode       : 9
+microcode       : 9
+microcode       : 9
+```
+
+5, マイクロコードを更新してみてください
+
+```
+microcode_ctl -u
+```
+
+出力が表示される場合：
+
+```
+microcode_ctl: writing microcode (length: 2370560)
+microcode_ctl: cannot open /dev/cpu/microcode for writing errno=2 (No such file or directory)
+```
+
+ドライバーのマイクロコードをロードする必要があります。
+
+6, ドライバーのマイクロコードを読み込みます
+
+```
+modprobe microcode
+```
+
+7, マイクロコードをもう一度更新してみてください
+
+```
+microcode_ctl -u
+```
+
+出力が表示される場合
+
+```
+microcode_ctl: writing microcode (length: 2370560)
+microcode_ctl: microcode successfully written to /dev/cpu/microcode
+```
+
+更新は成功です。
+
+8, バージョンを確認してください：
+
+```
+cat /proc/cpuinfo | grep microcode
+microcode       : 17
+microcode       : 17
+microcode       : 17
+microcode       : 17
+```
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EydWy-b9uns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

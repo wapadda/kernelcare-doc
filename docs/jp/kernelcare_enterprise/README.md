@@ -715,3 +715,53 @@ https://yourserver/admin/api/kcare/nagios/KCAREKEY
  `PARTNER_LOGIN/TOKEN` を使用したアクセスはKernelCare.ePortalではサポートされていません。
 :::
 
+## 使用状況レポート
+
+一般的な場合、使用状況レポートは自動的に送信されますが、それが不可能な場合、ePortalsはレポートを電子メールとして送信しようとします。 そのためには、ホストで構成済みのSendmail（SSMTP）が必要です。 以下に簡単な説明があります。
+
+メールの送信に失敗すると、ePortalはレポートを `/usr/share/kcare-eportal/reports` に保存します。これは手動で送信する必要があります。
+
+### Sendmail（SSMTP）を構成する方法
+
+まず、 `ssmtp` をインストールする必要があります。
+
+    yum install -y ssmtp
+
+SMTPサーバの構成に従って、`/etc/ssmtp/ssmtp.conf` ファイルを編集します。 以下は、Gmailアカウントに接続する一般的な方法を説明する簡単な設定ファイルです。
+
+    root=username@gmail.com
+    mailhub=smtp.gmail.com:587
+    hostname=localhost
+    UseSTARTTLS=YES
+    AuthUser=username@gmail.com
+    AuthPass=xxxxxxxxxxxxxxxxxxx
+    FromLineOverride=YES
+    TLS_CA_File=/etc/ssl/certs/ca-certificates.crt
+
+TLS_CA_Filesの実際の場所は、ディストリビューションに依存します。
+
+    "/etc/ssl/certs/ca-certificates.crt",                // Debian/Ubuntu/Gentoo etc.
+    "/etc/pki/tls/certs/ca-bundle.crt",                  // Fedora/RHEL 6
+    "/etc/ssl/ca-bundle.pem",                            // OpenSUSE
+    "/etc/pki/tls/cacert.pem",                           // OpenELEC
+    "/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem", // CentOS/RHEL 7
+
+下記でも取得できます。
+
+    curl-config --ca
+
+これで接続をテストできます：
+
+    echo -n 'Subject: test\n\nTesting ssmtp' | sendmail -v some-recipient@gmail.com
+
+## カスタム環境変数
+
+ePortalプロセス用に独自の環境変数を定義できます。
+
+`/usr/share/kcare-eportal/environment` フォルダがあります。これは、基本的にenvdir互換のデーモンツールです。
+
+例えば、デフォルトのhttps証明書検証を無効にするには、次のように `PYTHONHTTPSVERIFY` 環境変数を `0` に設定できます。
+
+```
+echo 0 > /usr/share/kcare-eportal/environment/PYTHONHTTPSVERIFY`
+```

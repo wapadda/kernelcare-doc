@@ -167,6 +167,7 @@ module.exports = {
               "/jp/delayed_feed/",
               "/jp/extra_patchset/",
               "/jp/sticky_patches/",
+              "/jp/scanner_interface/",
               "/jp/nagios_plugin/",
               "/jp/zabbix_template/",
               "/jp/upgrade/",
