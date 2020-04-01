@@ -6,7 +6,7 @@ To uninstall KernelCare do the the following:
 _For CloudLinux, CentOS, RHEL, Virtuozzo, OpenVZ:_
 
 ```
-$ yum remove kernelcare
+$ yum remove kernelcare -y
 ```
 
 _For Ubuntu, Debian, Proxmox VE:_
